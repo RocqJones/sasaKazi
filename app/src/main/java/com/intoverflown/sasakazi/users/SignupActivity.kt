@@ -6,15 +6,15 @@ import android.os.Bundle
 import android.view.View
 import com.intoverflown.sasakazi.R
 
-class LoginActivity : AppCompatActivity() {
+class SignupActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        setContentView(R.layout.activity_signup)
     }
 
-    // send user to signup activity if they don't have account
-    fun intentToSignup(view: View) {
-        val intent = Intent(this, SignupActivity::class.java)
+    // send to login activity of they have account
+    fun intentToLogin(view: View) {
+        val intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
         finish()
     }

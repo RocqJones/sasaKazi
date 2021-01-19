@@ -7,6 +7,7 @@ import android.os.Handler
 import android.view.WindowManager
 import com.intoverflown.sasakazi.MainActivity
 import com.intoverflown.sasakazi.R
+import com.intoverflown.sasakazi.users.LoginActivity
 
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,7 +22,7 @@ class SplashActivity : AppCompatActivity() {
 
         // set delay time in milliseconds
         Handler().postDelayed({
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
             finish()
         }, 3000)

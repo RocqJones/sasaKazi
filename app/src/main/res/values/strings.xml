@@ -10,7 +10,11 @@
     <string name="password">Password</string>
     <string name="email_address">Email Address</string>
     <string name="sign_up">Sign Up</string>
-    <string name="don_t_have_an_account" tools:ignore="StringEscaping">Don't have an account?</string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
     <string name="sign_in">Sign In</string>
     <string name="create_account">Create Account</string>
+    <string name="full_name">Full Name</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="already_have_an_account">Already have an account?</string>
 </resources>
