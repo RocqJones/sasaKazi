@@ -8,3 +8,4 @@
 * LiveData
 * Data Binding with binding adapters
 * Navigation with the SafeArgs plugin
+* Firebase authentication
