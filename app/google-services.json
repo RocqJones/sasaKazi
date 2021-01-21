@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "606399221972",
+    "project_id": "sasakazi",
+    "storage_bucket": "sasakazi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:606399221972:android:6fa614b9cf5c168fbaab41",
+        "android_client_info": {
+          "package_name": "com.intoverflown.sasakazi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "606399221972-uqmcp5fhcj3vkrd06cg036mad3572g0h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.intoverflown.sasakazi",
+            "certificate_hash": "f224f7049fb0dab6a9b1c971fce3a6ae55561f87"
+          }
+        },
+        {
+          "client_id": "606399221972-q8s8m3iiiro0spujr33gkkh739ht929c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnxHQkxcAY_B6pKJHF-n3I278HUlahSjk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "606399221972-q8s8m3iiiro0spujr33gkkh739ht929c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
