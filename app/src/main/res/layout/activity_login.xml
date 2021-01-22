@@ -40,7 +40,7 @@
     <EditText
         android:id="@+id/email_edittext"
         android:layout_width="wrap_content"
-        android:layout_height="45dp"
+        android:layout_height="wrap_content"
         android:padding="8dp"
         android:background="@drawable/rounded_edittext"
         android:layout_below="@+id/login"
@@ -61,7 +61,7 @@
     <EditText
         android:id="@+id/password_edittext"
         android:layout_width="wrap_content"
-        android:layout_height="45dp"
+        android:layout_height="wrap_content"
         android:padding="8dp"
         android:background="@drawable/rounded_edittext"
         android:layout_below="@+id/email_edittext"
@@ -95,33 +95,49 @@
         android:textColor="#FFFF"/>
 
     <TextView
+        android:id="@+id/forgot_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/login_button"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="20dp"
+        android:fontFamily="sans-serif"
+        android:text="@string/forgot_password"
+        android:textColor="#DA4477"
+        android:textSize="18sp"
+        android:visibility="gone" />
+
+    <TextView
         android:id="@+id/txt_loginquery"
         android:layout_width="wrap_content"
-        android:layout_height="45dp"
-        android:layout_below="@+id/login_button"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/forgot_password"
         android:layout_alignParentStart="true"
         android:layout_marginStart="20dp"
         android:layout_marginTop="15dp"
-        android:text="@string/don_t_have_an_account"
-        android:textSize="18sp"
         android:fontFamily="sans-serif"
-        android:textColor="@color/welcome_txt_color"/>
+        android:text="@string/don_t_have_an_account"
+        android:textColor="@color/welcome_txt_color"
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/to_signup"
         android:layout_width="wrap_content"
-        android:layout_height="45dp"
-        android:layout_below="@+id/login_button"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/forgot_password"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="100dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="20dp"
         android:fontFamily="sans-serif"
+        android:onClick="intentToSignup"
         android:text="@string/sign_up"
-        android:textStyle="bold"
         android:textColor="#2C3EA2"
         android:textSize="18sp"
-        android:onClick="intentToSignup"/>
+        android:textStyle="bold" />
 
 
 </RelativeLayout>
