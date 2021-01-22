@@ -64,7 +64,7 @@ class SignupActivity : AppCompatActivity() {
 
         // Firebase here
         mDatabase = FirebaseDatabase.getInstance()
-        mDatabaseReferences = mDatabase!!.reference!!.child("Users")
+        mDatabaseReferences = mDatabase!!.reference.child("Users")
         mAuth = FirebaseAuth.getInstance()
 
         // btn action onClick
@@ -115,10 +115,10 @@ class SignupActivity : AppCompatActivity() {
 
     private fun verifyWithEmail() {
         // method to verify user’s email address
-        val mUser = mAuth!!.currentUser;
+        val mUser = mAuth!!.currentUser
         mUser!!.sendEmailVerification().addOnCompleteListener(this) { task ->
             if (task.isSuccessful) {
-                Toast.makeText(this, "" + "Verification email sent to " + mUser.getEmail(), Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "" + "Verification email sent to " + mUser.email, Toast.LENGTH_SHORT).show()
             } else {
                 Log.e(TAG, "sendEmailVerification", task.exception)
                 Toast.makeText(this, "Failed to send verification", Toast.LENGTH_SHORT).show()
