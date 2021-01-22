@@ -91,7 +91,7 @@
         android:layout_marginEnd="20dp"
         android:fontFamily="sans-serif"
         android:text="@string/login"
-        android:backgroundTint="#31344E"
+        android:background="#31344E"
         android:textColor="#FFFF"/>
 
     <TextView
