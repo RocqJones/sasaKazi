@@ -11,6 +11,7 @@
         android:theme="@style/Theme.SasaKazi">
         <activity
             android:name=".users.ForgotPasswordActivity"
+            android:parentActivityName=".users.LoginActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
 
         <activity
