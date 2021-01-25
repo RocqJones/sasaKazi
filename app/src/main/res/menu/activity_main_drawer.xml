@@ -7,10 +7,12 @@
         <item
             android:id="@+id/nav_profile"
             android:icon="@drawable/baseline_account_box_white_24dp"
-            android:title="@string/profile" />
+            android:title="@string/profile"
+            android:onClick="intentToProfile"/>
         <item
             android:id="@+id/logout"
             android:icon="@drawable/baseline_exit_to_app_white_24dp"
-            android:title="@string/logout" />
+            android:title="@string/logout"
+            android:onClick="logOutCurrentUser"/>
     </group>
 </menu>
