@@ -30,4 +30,19 @@
         android:name="com.intoverflown.sasakazi.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+    <activity
+        android:id="@+id/loginActivity"
+        android:name="com.intoverflown.sasakazi.users.LoginActivity"
+        android:label="activity_login"
+        tools:layout="@layout/activity_login" />
+    <activity
+        android:id="@+id/signupActivity"
+        android:name="com.intoverflown.sasakazi.users.SignupActivity"
+        android:label="activity_signup"
+        tools:layout="@layout/activity_signup" />
+    <activity
+        android:id="@+id/forgotPasswordActivity"
+        android:name="com.intoverflown.sasakazi.users.ForgotPasswordActivity"
+        android:label="activity_forgot_password"
+        tools:layout="@layout/activity_forgot_password" />
 </navigation>
