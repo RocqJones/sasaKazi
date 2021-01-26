@@ -45,4 +45,8 @@
         android:name="com.intoverflown.sasakazi.users.ForgotPasswordActivity"
         android:label="activity_forgot_password"
         tools:layout="@layout/activity_forgot_password" />
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.intoverflown.sasakazi.MainActivity"
+        android:label="MainActivity" />
 </navigation>
