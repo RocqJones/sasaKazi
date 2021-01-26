@@ -13,7 +13,6 @@
     <string name="don_t_have_an_account">Don\'t have an account?</string>
     <string name="sign_in">Sign In</string>
     <string name="create_account">Create Account</string>
-    <string name="full_name">Full Name</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="phone_number">Phone Number</string>
     <string name="already_have_an_account">Already have an account?</string>
@@ -33,4 +32,10 @@
     <string name="menu_slideshow">Slideshow</string>
     <string name="logout">LogOut</string>
     <string name="profile">Profile</string>
+    <string name="full_name">Full Name</string>
+    <string name="ic">IC</string>
+    <string name="my_courses">My Courses</string>
+    <string name="notifications">Notifications</string>
+    <string name="_254_123_456_789">(+254) 123 456 789</string>
+    <string name="_3">(3)</string>
 </resources>
