@@ -18,6 +18,8 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.ktx.options
 import com.intoverflown.sasakazi.ui.navdrawer.ProfileActivity
 import com.intoverflown.sasakazi.users.LoginActivity
 
@@ -29,8 +31,8 @@ class MainActivity : AppCompatActivity() {
     private var mDatabaseReference: DatabaseReference? = null
 
     //UI elements
-    private var fullName: TextView? = null
-    private var emailAddress: TextView? = null
+    private var navFullName: TextView? = null
+    private var navEmailAddress: TextView? = null
 
     private lateinit var appBarConfiguration: AppBarConfiguration
 
@@ -61,7 +63,7 @@ class MainActivity : AppCompatActivity() {
         navBottomView.setupWithNavController(navController)
 
         // initialize references
-        initializeReferences()
+        initializeREF()
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -69,13 +71,13 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
-    private fun initializeReferences() {
+    private fun initializeREF() {
         mDatabase = FirebaseDatabase.getInstance()
         mDatabaseReference = mDatabase!!.reference!!.child("Users")
         mAuth = FirebaseAuth.getInstance()
 
-        fullName = findViewById<View>(R.id.nav_fullName) as? TextView
-        emailAddress = findViewById<View>(R.id.nav_emailAddress) as? TextView
+        navFullName = findViewById<View>(R.id.nav_fullName) as? TextView
+        navEmailAddress = findViewById<View>(R.id.nav_emailAddress) as? TextView
     }
 
     // show user full-name and email in the nav header
@@ -84,17 +86,15 @@ class MainActivity : AppCompatActivity() {
 
         val mUser = mAuth!!.currentUser
         val mUserReference = mDatabaseReference!!.child(mUser!!.uid)
-
-//        emailAddress!!.text = mUser.email
-        emailAddress?.text ?: mUser.email
+//
+        navEmailAddress?.text = mUser.email
+//        navEmailAddress?.text ?: mUser.email
 
         mUserReference.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-//                fullName!!.text = snapshot.child("fullname").value as String
-                fullName?.text ?: snapshot.child("fullname").value as String
-
+                navFullName?.text = snapshot.child("fullname").value as String
+//                navFullName?.text ?: snapshot.child("fullname").value as String
             }
-
             override fun onCancelled(error: DatabaseError) {}
         })
     }
