@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
@@ -15,11 +14,10 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
-import com.google.firebase.ktx.Firebase
-import com.google.firebase.ktx.options
 import com.intoverflown.sasakazi.ui.navdrawer.ProfileActivity
 import com.intoverflown.sasakazi.users.LoginActivity
 
@@ -33,6 +31,7 @@ class MainActivity : AppCompatActivity() {
     //UI elements
     private var navFullName: TextView? = null
     private var navEmailAddress: TextView? = null
+//    private var navEmailAddress = findViewById<View>(R.id.nav_emailAddress)
 
     private lateinit var appBarConfiguration: AppBarConfiguration
 
@@ -73,7 +72,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun initializeREF() {
         mDatabase = FirebaseDatabase.getInstance()
-        mDatabaseReference = mDatabase!!.reference!!.child("Users")
+        mDatabaseReference = mDatabase!!.reference.child("Users")
         mAuth = FirebaseAuth.getInstance()
 
         navFullName = findViewById<View>(R.id.nav_fullName) as? TextView
@@ -83,6 +82,8 @@ class MainActivity : AppCompatActivity() {
     // show user full-name and email in the nav header
     override fun onStart() {
         super.onStart()
+
+//        val user = FirebaseAuth.getInstance().currentUser
 
         val mUser = mAuth!!.currentUser
         val mUserReference = mDatabaseReference!!.child(mUser!!.uid)
