@@ -27,10 +27,10 @@ class MainActivity : AppCompatActivity() {
     private var mAuth: FirebaseAuth? = null
     private var mDatabase: FirebaseDatabase? = null
     private var mDatabaseReference: DatabaseReference? = null
-
-    //UI elements
-    private var navFullName: TextView? = null
-    private var navEmailAddress: TextView? = null
+//
+//    //UI elements
+//    private var navFullName: TextView? = null
+//    private var navEmailAddress: TextView? = null
 //    private var navEmailAddress = findViewById<View>(R.id.nav_emailAddress)
 
     private lateinit var appBarConfiguration: AppBarConfiguration
@@ -74,9 +74,9 @@ class MainActivity : AppCompatActivity() {
         mDatabase = FirebaseDatabase.getInstance()
         mDatabaseReference = mDatabase!!.reference.child("Users")
         mAuth = FirebaseAuth.getInstance()
-
-        navFullName = findViewById<View>(R.id.nav_fullName) as? TextView
-        navEmailAddress = findViewById<View>(R.id.nav_emailAddress) as? TextView
+//
+//        navFullName = findViewById<View>(R.id.nav_fullName) as? TextView
+//        navEmailAddress = findViewById<View>(R.id.nav_emailAddress) as? TextView
     }
 
     // show user full-name and email in the nav header
@@ -85,24 +85,24 @@ class MainActivity : AppCompatActivity() {
 
 //        val user = FirebaseAuth.getInstance().currentUser
 
-        val mUser = mAuth!!.currentUser
-        val mUserReference = mDatabaseReference!!.child(mUser!!.uid)
+//        val mUser = mAuth!!.currentUser
+//        val mUserReference = mDatabaseReference!!.child(mUser!!.uid)
+////
+//        navEmailAddress?.text = mUser.email
+////        navEmailAddress?.text ?: mUser.email
 //
-        navEmailAddress?.text = mUser.email
-//        navEmailAddress?.text ?: mUser.email
-
-        mUserReference.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                navFullName?.text = snapshot.child("fullname").value as String
-//                navFullName?.text ?: snapshot.child("fullname").value as String
-            }
-            override fun onCancelled(error: DatabaseError) {}
-        })
+//        mUserReference.addValueEventListener(object : ValueEventListener {
+//            override fun onDataChange(snapshot: DataSnapshot) {
+//                navFullName?.text = snapshot.child("fullname").value as String
+////                navFullName?.text ?: snapshot.child("fullname").value as String
+//            }
+//            override fun onCancelled(error: DatabaseError) {}
+//        })
     }
 
     // logOut
     fun logOutCurrentUser(item: MenuItem) {
-        // mAuth = FirebaseAuth.getInstance()
+         mAuth = FirebaseAuth.getInstance()
         mAuth!!.signOut()
 
         val intent = Intent(this, LoginActivity::class.java)
