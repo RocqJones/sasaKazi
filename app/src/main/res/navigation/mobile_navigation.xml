@@ -48,5 +48,11 @@
     <activity
         android:id="@+id/mainActivity"
         android:name="com.intoverflown.sasakazi.MainActivity"
-        android:label="MainActivity" />
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
+    <activity
+        android:id="@+id/profileActivity"
+        android:name="com.intoverflown.sasakazi.ui.navdrawer.ProfileActivity"
+        android:label="activity_profile"
+        tools:layout="@layout/activity_profile" />
 </navigation>
