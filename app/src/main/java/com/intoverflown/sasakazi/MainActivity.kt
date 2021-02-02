@@ -27,11 +27,10 @@ class MainActivity : AppCompatActivity() {
     private var mAuth: FirebaseAuth? = null
     private var mDatabase: FirebaseDatabase? = null
     private var mDatabaseReference: DatabaseReference? = null
-//
-//    //UI elements
-//    private var navFullName: TextView? = null
-//    private var navEmailAddress: TextView? = null
-//    private var navEmailAddress = findViewById<View>(R.id.nav_emailAddress)
+
+    //Nav UI elements
+    private var navFullName: TextView? = null
+    private var navEmailAddress: TextView? = null
 
     private lateinit var appBarConfiguration: AppBarConfiguration
 
@@ -70,34 +69,35 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
+    // Nav UI and Firebase refs
     private fun initializeREF() {
+        // get the navigation view here and then get it's nav_header_view otherwise there will be a NullPointerException error
+        val navView: NavigationView = findViewById(R.id.nav_view)
+        val headerView: View = navView.getHeaderView(0)
+
         mDatabase = FirebaseDatabase.getInstance()
         mDatabaseReference = mDatabase!!.reference.child("Users")
         mAuth = FirebaseAuth.getInstance()
-//
-//        navFullName = findViewById<View>(R.id.nav_fullName) as? TextView
-//        navEmailAddress = findViewById<View>(R.id.nav_emailAddress) as? TextView
+
+        navFullName = headerView.findViewById(R.id.nav_fullName)
+        navEmailAddress = headerView.findViewById(R.id.nav_emailAddress)
+
+        showNavDrawerUserDet()
     }
 
-    // show user full-name and email in the nav header
-    override fun onStart() {
-        super.onStart()
+    // show user profile pic, full-name and email in the nav header
+    private fun showNavDrawerUserDet() {
+        val mUser = mAuth!!.currentUser
+        val mUserReference = mDatabaseReference!!.child(mUser!!.uid)
 
-//        val user = FirebaseAuth.getInstance().currentUser
+        navEmailAddress?.text = mUser.email
 
-//        val mUser = mAuth!!.currentUser
-//        val mUserReference = mDatabaseReference!!.child(mUser!!.uid)
-////
-//        navEmailAddress?.text = mUser.email
-////        navEmailAddress?.text ?: mUser.email
-//
-//        mUserReference.addValueEventListener(object : ValueEventListener {
-//            override fun onDataChange(snapshot: DataSnapshot) {
-//                navFullName?.text = snapshot.child("fullname").value as String
-////                navFullName?.text ?: snapshot.child("fullname").value as String
-//            }
-//            override fun onCancelled(error: DatabaseError) {}
-//        })
+        mUserReference.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                navFullName?.text = snapshot.child("fullname").value as String
+            }
+            override fun onCancelled(error: DatabaseError) {}
+        })
     }
 
     // logOut
