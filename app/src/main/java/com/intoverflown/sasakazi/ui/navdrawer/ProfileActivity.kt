@@ -67,9 +67,6 @@ class ProfileActivity : AppCompatActivity() {
         intent.type = "image/*"
         intent.action = Intent.ACTION_GET_CONTENT
         startActivityForResult(Intent.createChooser(intent, "Select Image..."), IMAGE_REQUEST_CODE)
-
-        // Intent for camera activity to capture a new picture
-//        val takePhotoIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
     }
 
     // override onActivityResult fun which gets the image data
@@ -122,12 +119,8 @@ class ProfileActivity : AppCompatActivity() {
                                 currentUsersDb.child("profile-url").setValue(url)
                             }
                         }
-
                         override fun onCancelled(error: DatabaseError) {  }
                     })
-
-//                    mDatabaseReference!!.updateChildren(url)
-
                     progressBar.dismiss()
                 }
             }
@@ -143,7 +136,7 @@ class ProfileActivity : AppCompatActivity() {
 
         mUserReference.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                Picasso.get().load(mUser.photoUrl).resize(50, 50).centerCrop().into(profilePicture)
+                Picasso.get().load(snapshot.child("profile-url").value as String).into(profilePicture)
                 profileFullName!!.text = snapshot.child("fullname").value as String
                 profilePhoneNum!!.text = snapshot.child("phone").value as String
             }

@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -20,6 +21,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.intoverflown.sasakazi.ui.navdrawer.ProfileActivity
 import com.intoverflown.sasakazi.users.LoginActivity
+import com.squareup.picasso.Picasso
 
 class MainActivity : AppCompatActivity() {
 
@@ -31,6 +33,7 @@ class MainActivity : AppCompatActivity() {
     //Nav UI elements
     private var navFullName: TextView? = null
     private var navEmailAddress: TextView? = null
+    private var navProfileImage: ImageView? = null
 
     private lateinit var appBarConfiguration: AppBarConfiguration
 
@@ -81,6 +84,7 @@ class MainActivity : AppCompatActivity() {
 
         navFullName = headerView.findViewById(R.id.nav_fullName)
         navEmailAddress = headerView.findViewById(R.id.nav_emailAddress)
+        navProfileImage = headerView.findViewById(R.id.nav_drawerCircleImg)
 
         showNavDrawerUserDet()
     }
@@ -94,10 +98,13 @@ class MainActivity : AppCompatActivity() {
 
         mUserReference.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
+                Picasso.get().load(snapshot.child("profile-url").value as String).into(navProfileImage)
                 navFullName?.text = snapshot.child("fullname").value as String
             }
             override fun onCancelled(error: DatabaseError) {}
         })
+
+        // use Glide to show user image
     }
 
     // logOut
