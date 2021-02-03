@@ -44,7 +44,7 @@ class SignupActivity : AppCompatActivity() {
     private var str_confirmpwd: String? = null
 
     // default user profile avatar
-    private val url = "https://firebasestorage.googleapis.com/v0/b/sasakazi.appspot.com/o/User%20Images%2Favatar.png?alt=media&token=b4170626-4421-4ffc-adfb-667a0583a4a5"
+    private val url = "https://firebasestorage.googleapis.com/v0/b/sasakazi.appspot.com/o/User%20Images%2Favatar.png?alt=media&token=42879e32-f155-40e0-af97-4c5c5566e9cd"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
