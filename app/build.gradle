@@ -70,8 +70,8 @@ dependencies {
     def multidex_version = "2.0.1"
     implementation "androidx.multidex:multidex:$multidex_version"
 
-    // Picasso
-    def picasso_version = "2.71828"
-    implementation "com.squareup.picasso:picasso:$picasso_version"
-
+    // Glide for images
+    def glide_version = "4.12.0"
+    implementation "com.github.bumptech.glide:glide:$glide_version"
+    annotationProcessor "com.github.bumptech.glide:compiler:$glide_version"
 }

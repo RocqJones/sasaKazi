@@ -15,13 +15,14 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.bumptech.glide.Glide
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.intoverflown.sasakazi.ui.navdrawer.ProfileActivity
 import com.intoverflown.sasakazi.users.LoginActivity
-import com.squareup.picasso.Picasso
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -98,7 +99,12 @@ class MainActivity : AppCompatActivity() {
 
         mUserReference.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                Picasso.get().load(snapshot.child("profile-url").value as String).into(navProfileImage)
+                // Picasso.get().load(snapshot.child("profile-url").value as String).into(navProfileImage)
+                navProfileImage?.let {
+                    Glide.with(this@MainActivity).load(snapshot.child("profile-url").value as String).circleCrop().into(
+                        it
+                    )
+                }
                 navFullName?.text = snapshot.child("fullname").value as String
             }
             override fun onCancelled(error: DatabaseError) {}
