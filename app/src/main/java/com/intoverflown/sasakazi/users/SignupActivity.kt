@@ -43,6 +43,9 @@ class SignupActivity : AppCompatActivity() {
     private var str_password: String? = null
     private var str_confirmpwd: String? = null
 
+    // default user profile avatar
+    private val url = "https://firebasestorage.googleapis.com/v0/b/sasakazi.appspot.com/o/User%20Images%2Favatar.png?alt=media&token=b4170626-4421-4ffc-adfb-667a0583a4a5"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
@@ -101,6 +104,7 @@ class SignupActivity : AppCompatActivity() {
                     val currentUsersDb = mDatabaseReferences!!.child(userId)
                     currentUsersDb.child("fullname").setValue(str_fullname)
                     currentUsersDb.child("phone").setValue(str_phone)
+                    currentUsersDb.child("profile-url").setValue(url)
 
                     // then start a new activity once user is created
                     sendUserToHomePage()
