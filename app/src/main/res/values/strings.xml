@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <string name="app_name">sasaKazi</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
@@ -22,8 +22,8 @@
     <string name="title_activity_nav_drawer">NavDrawerActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_title">Username</string>
+    <string name="nav_header_subtitle">email@example.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
