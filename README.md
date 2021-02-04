@@ -9,3 +9,6 @@
 * **LiveData:** *To build data objects that notify views when the underlying database changes.*
 * Data Binding with binding adapters
 * Navigation with the SafeArgs plugin
+
+## Download apk
+[Click here for download!](https://github.com/RocqJones/sasaKazi/blob/master/app/build/outputs/apk/debug/app-debug.apk)
