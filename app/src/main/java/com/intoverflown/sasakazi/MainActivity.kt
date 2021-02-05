@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -35,6 +36,7 @@ class MainActivity : AppCompatActivity() {
     private var navFullName: TextView? = null
     private var navEmailAddress: TextView? = null
     private var navProfileImage: ImageView? = null
+    private var linearLayoutAction : LinearLayout? = null
 
     private lateinit var appBarConfiguration: AppBarConfiguration
 
@@ -86,6 +88,10 @@ class MainActivity : AppCompatActivity() {
         navFullName = headerView.findViewById(R.id.nav_fullName)
         navEmailAddress = headerView.findViewById(R.id.nav_emailAddress)
         navProfileImage = headerView.findViewById(R.id.nav_drawerCircleImg)
+        linearLayoutAction = headerView.findViewById(R.id.nav_header_linearLayout)
+
+        // when clicked it intents to profile
+        linearLayoutAction!!.setOnClickListener { intentToProfileAction() }
 
         showNavDrawerUserDet()
     }
@@ -115,7 +121,7 @@ class MainActivity : AppCompatActivity() {
 
     // logOut
     fun logOutCurrentUser(item: MenuItem) {
-         mAuth = FirebaseAuth.getInstance()
+        mAuth = FirebaseAuth.getInstance()
         mAuth!!.signOut()
 
         val intent = Intent(this, LoginActivity::class.java)
@@ -124,8 +130,12 @@ class MainActivity : AppCompatActivity() {
         finish()
     }
 
-    // view User Profile
     fun intentToProfile(item: MenuItem) {
+        intentToProfileAction()
+    }
+
+    // intent to Profile
+    private fun intentToProfileAction() {
         val intent = Intent(this, ProfileActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         startActivity(intent)
