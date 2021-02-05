@@ -34,6 +34,7 @@ class ProfileActivity : AppCompatActivity() {
     private var profileFullName : TextView? = null
     private var profilePhoneNum : TextView? = null
     private var profilePicture : ImageView? = null
+    private var profileIcon: ImageView? = null
 
     // image vars
     private val IMAGE_REQUEST_CODE = 22
@@ -59,7 +60,9 @@ class ProfileActivity : AppCompatActivity() {
         profileFullName = findViewById<View>(R.id.user_profileFullName) as TextView
         profilePhoneNum = findViewById<View>(R.id.user_profilePhoneNo) as TextView
         profilePicture = findViewById<View>(R.id.user_profilePicture) as ImageView
+        profileIcon = findViewById<View>(R.id.user_imgIC) as ImageView
 
+        profileIcon!!.setOnClickListener { selectImg() }
         profilePicture!!.setOnClickListener { selectImg() }
     }
 

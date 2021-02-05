@@ -19,6 +19,20 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/baseline_account_circle_white_48dp" />
 
+    <ImageView
+        android:id="@+id/user_imgIC"
+        android:layout_width="20dp"
+        android:layout_height="19dp"
+        android:layout_marginStart="8dp"
+        android:contentDescription="@string/profile"
+        app:layout_constraintBottom_toBottomOf="@+id/user_profilePicture"
+        app:layout_constraintEnd_toEndOf="@+id/user_profilePicture"
+        app:layout_constraintHorizontal_bias="0.72"
+        app:layout_constraintStart_toStartOf="@+id/user_profilePicture"
+        app:layout_constraintTop_toTopOf="@+id/user_profilePicture"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/baseline_photo_camera_white_18dp" />
+
     <TextView
         android:id="@+id/user_profileFullName"
         android:layout_width="wrap_content"
@@ -28,6 +42,7 @@
         android:hint="@string/full_name"
         android:textColor="@color/white"
         android:textSize="20sp"
+        android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/user_profilePicture" />
@@ -41,6 +56,7 @@
         android:hint="@string/_254_123_456_789"
         android:textColor="@color/white"
         android:textSize="20sp"
+        android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/user_profileFullName" />
@@ -98,8 +114,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginTop="45dp"
-        android:text="@string/_3"
         android:fontFamily="sans-serif"
+        android:text="@string/_3"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/notificationBell"
@@ -111,8 +127,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="45dp"
-        android:text="@string/notifications"
         android:fontFamily="sans-serif"
+        android:text="@string/notifications"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/notificationsValue"
