@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
     private var mDatabase: FirebaseDatabase? = null
     private var mDatabaseReference: DatabaseReference? = null
 
-    //Nav UI elements
+    // Nav UI elements
     private var navFullName: TextView? = null
     private var navEmailAddress: TextView? = null
     private var navProfileImage: ImageView? = null
