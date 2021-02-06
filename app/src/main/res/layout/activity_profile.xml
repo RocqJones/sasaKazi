@@ -7,7 +7,6 @@
     android:background="@color/solid_background"
     tools:context=".ui.navdrawer.ProfileActivity">
 
-
     <ImageView
         android:id="@+id/user_profilePicture"
         android:layout_width="239dp"
@@ -39,10 +38,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:fontFamily="sans-serif"
+        android:gravity="center"
         android:hint="@string/full_name"
         android:textColor="@color/white"
         android:textSize="20sp"
-        android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/user_profilePicture" />
@@ -53,13 +52,32 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:fontFamily="sans-serif"
+        android:gravity="center"
         android:hint="@string/_254_123_456_789"
         android:textColor="@color/white"
         android:textSize="20sp"
-        android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/user_profileFullName" />
+
+    <Button
+        android:id="@+id/user_profileBtn"
+        android:layout_width="146dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="20dp"
+        android:drawableEnd="@drawable/baseline_edit_white_18dp"
+        android:text="@string/edit_profile"
+        android:textAllCaps="false"
+        android:textSize="14sp"
+        android:gravity="center"
+        android:backgroundTint="#1D213D"
+        android:shadowColor="@color/white"
+        android:outlineSpotShadowColor="@color/white"
+        app:layout_constraintCircleRadius="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user_profilePhoneNo"
+        tools:targetApi="p" />
 
     <View
         android:id="@+id/view"
@@ -70,8 +88,9 @@
         android:layout_marginEnd="24dp"
         android:background="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/user_profilePhoneNo" />
+        app:layout_constraintTop_toBottomOf="@+id/user_profileBtn" />
 
     <ImageView
         android:id="@+id/bookmark_IC"
