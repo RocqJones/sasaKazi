@@ -7,6 +7,7 @@ import android.icu.number.NumberRangeFormatter.with
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -21,6 +22,7 @@ import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.StorageTask
 import com.google.firebase.storage.UploadTask
 import com.intoverflown.sasakazi.R
+import com.intoverflown.sasakazi.settings.EditProfileActivity
 
 
 class ProfileActivity : AppCompatActivity() {
@@ -35,6 +37,7 @@ class ProfileActivity : AppCompatActivity() {
     private var profilePhoneNum : TextView? = null
     private var profilePicture : ImageView? = null
     private var profileIcon: ImageView? = null
+    private var profileBtn: Button? = null
 
     // image vars
     private val IMAGE_REQUEST_CODE = 22
@@ -51,7 +54,7 @@ class ProfileActivity : AppCompatActivity() {
 
     private fun initializeRefs() {
         mDatabase = FirebaseDatabase.getInstance()
-        mDatabaseReference = mDatabase!!.reference!!.child("Users")
+        mDatabaseReference = mDatabase!!.reference.child("Users")
         mAuth = FirebaseAuth.getInstance()
 
         // create user img db
@@ -61,9 +64,17 @@ class ProfileActivity : AppCompatActivity() {
         profilePhoneNum = findViewById<View>(R.id.user_profilePhoneNo) as TextView
         profilePicture = findViewById<View>(R.id.user_profilePicture) as ImageView
         profileIcon = findViewById<View>(R.id.user_imgIC) as ImageView
+        profileBtn = findViewById<View>(R.id.user_profileBtn) as Button
 
+        profileBtn!!.setOnClickListener { intentToEditProfile() }
         profileIcon!!.setOnClickListener { selectImg() }
         profilePicture!!.setOnClickListener { selectImg() }
+    }
+
+    private fun intentToEditProfile() {
+        val intent = Intent(this, EditProfileActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        startActivity(intent)
     }
 
     private fun selectImg() {
@@ -93,7 +104,7 @@ class ProfileActivity : AppCompatActivity() {
             // make user id unique such that if another user names the image the same way it won't replace it
             val fileRef = storageRef!!.child(System.currentTimeMillis().toString() + ".jpg")
 
-            var uploadTask : StorageTask<*>
+            val uploadTask : StorageTask<*>
             uploadTask = fileRef.putFile(imageUri!!)
             uploadTask.continueWithTask(Continuation<UploadTask.TaskSnapshot, Task<Uri>> { task ->
                 if (task.isSuccessful) {
