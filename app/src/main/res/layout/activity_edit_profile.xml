@@ -32,7 +32,9 @@
         android:textSize="20sp"
         android:fontFamily="sans-serif"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:autofillHints=""
+        android:hint="@string/full_name" />
 
     <TextView
         android:id="@+id/textView3"
@@ -59,7 +61,9 @@
         android:textSize="20sp"
         android:fontFamily="sans-serif"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/updateProfileName" />
+        app:layout_constraintTop_toBottomOf="@+id/updateProfileName"
+        android:autofillHints=""
+        android:hint="@string/phone_number" />
 
     <TextView
         android:id="@+id/textView4"
@@ -87,10 +91,12 @@
         android:gravity="start|top"
         android:inputType="textMultiLine"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/updatePhoneNumber" />
+        app:layout_constraintTop_toBottomOf="@+id/updatePhoneNumber"
+        android:autofillHints=""
+        android:hint="@string/add_your_headline" />
 
     <Button
-        android:id="@+id/update_button"
+        android:id="@+id/updateBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
