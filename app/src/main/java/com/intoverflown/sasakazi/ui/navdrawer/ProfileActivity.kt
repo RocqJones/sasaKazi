@@ -38,6 +38,7 @@ class ProfileActivity : AppCompatActivity() {
     private var profilePicture : ImageView? = null
     private var profileIcon: ImageView? = null
     private var profileBtn: Button? = null
+    private var profileBio: TextView? = null
 
     // image vars
     private val IMAGE_REQUEST_CODE = 22
@@ -65,6 +66,7 @@ class ProfileActivity : AppCompatActivity() {
         profilePicture = findViewById<View>(R.id.user_profilePicture) as ImageView
         profileIcon = findViewById<View>(R.id.user_imgIC) as ImageView
         profileBtn = findViewById<View>(R.id.user_profileBtn) as Button
+        profileBio = findViewById<View>(R.id.user_bioInfo) as TextView
 
         profileBtn!!.setOnClickListener { intentToEditProfile() }
         profileIcon!!.setOnClickListener { selectImg() }
@@ -159,6 +161,14 @@ class ProfileActivity : AppCompatActivity() {
                 }
                 profileFullName!!.text = snapshot.child("fullname").value as String
                 profilePhoneNum!!.text = snapshot.child("phone").value as String
+
+                // check if user has updated bio or not
+                if (snapshot.hasChild("bio")) {
+                    profileBio!!.text = snapshot.child("bio").value as String
+                    profileBio!!.visibility = View.VISIBLE
+                } else {
+                    profileBio!!.visibility = View.GONE
+                }
             }
 
             override fun onCancelled(error: DatabaseError) {}
