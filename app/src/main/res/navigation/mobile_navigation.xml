@@ -55,4 +55,9 @@
         android:name="com.intoverflown.sasakazi.ui.navdrawer.ProfileActivity"
         android:label="activity_profile"
         tools:layout="@layout/activity_profile" />
+    <activity
+        android:id="@+id/editProfileActivity"
+        android:name="com.intoverflown.sasakazi.settings.EditProfileActivity"
+        android:label="activity_edit_profile"
+        tools:layout="@layout/activity_edit_profile" />
 </navigation>
