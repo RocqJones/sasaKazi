@@ -115,8 +115,6 @@ class MainActivity : AppCompatActivity() {
             }
             override fun onCancelled(error: DatabaseError) {}
         })
-
-        // use Glide to show user image
     }
 
     // logOut
