@@ -43,6 +43,8 @@
     <string name="update_profile">Update Profile</string>
     <string name="add_your_headline">add your headline</string>
     <string name="base_img_view">base img view</string>
-    <string name="the_technology_stack">The technology Stack</string>
+    <string name="mobile_app_dev">Mobile App Development</string>
     <string name="explore_more"><![CDATA[Explore more >>>]]></string>
+    <string name="game_development">Game Development</string>
+    <string name="web_development">Web Development</string>
 </resources>
