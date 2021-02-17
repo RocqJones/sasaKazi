@@ -49,7 +49,6 @@
                 android:textSize="20sp"
                 android:textStyle="normal" />
         </RelativeLayout>
-
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
@@ -96,7 +95,6 @@
                 android:textSize="20sp"
                 android:textStyle="normal" />
         </RelativeLayout>
-
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
@@ -143,7 +141,6 @@
                 android:textSize="20sp"
                 android:textStyle="normal" />
         </RelativeLayout>
-
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
@@ -190,7 +187,6 @@
                 android:textSize="20sp"
                 android:textStyle="normal" />
         </RelativeLayout>
-
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
