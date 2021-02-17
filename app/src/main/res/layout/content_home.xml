@@ -7,7 +7,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/home_mobileAppCard"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="@dimen/home_card_height"
         android:layout_marginTop="2dp"
         android:visibility="visible"
         app:cardBackgroundColor="@color/light_background"
@@ -28,7 +28,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="75dp"
+                android:layout_marginTop="@dimen/home_card_txt_margin_top"
                 android:fontFamily="sans-serif"
                 android:text="@string/mobile_app_dev"
                 android:textColor="@color/white"
@@ -54,7 +54,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/home_webAppCard"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="@dimen/home_card_height"
         android:layout_marginTop="2dp"
         android:visibility="visible"
         app:cardBackgroundColor="@color/light_background"
@@ -75,7 +75,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="75dp"
+                android:layout_marginTop="@dimen/home_card_txt_margin_top"
                 android:fontFamily="sans-serif"
                 android:text="@string/web_development"
                 android:textColor="@color/white"
@@ -100,7 +100,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/home_gameDevCard"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="@dimen/home_card_height"
         android:layout_marginTop="2dp"
         android:visibility="visible"
         app:cardBackgroundColor="@color/light_background"
@@ -121,7 +121,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="75dp"
+                android:layout_marginTop="@dimen/home_card_txt_margin_top"
                 android:fontFamily="sans-serif"
                 android:text="@string/game_development"
                 android:textColor="@color/white"
@@ -146,7 +146,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/home_digitalMarketingCard"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="@dimen/home_card_height"
         android:layout_marginTop="2dp"
         android:visibility="visible"
         app:cardBackgroundColor="@color/light_background"
@@ -155,7 +155,7 @@
         app:layout_constraintTop_toBottomOf="@+id/home_gameDevCard">
 
         <RelativeLayout
-            android:id="@+id/home_gdigitalMarketingLayout"
+            android:id="@+id/home_digitalMarketingLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/home_digital_marketing_banner">
@@ -167,7 +167,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="75dp"
+                android:layout_marginTop="@dimen/home_card_txt_margin_top"
                 android:fontFamily="sans-serif"
                 android:text="@string/digital_marketing"
                 android:textColor="@color/white"
@@ -178,6 +178,52 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/home_digitalMarketingTxtView"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="sans-serif"
+                android:text="@string/explore_more"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="normal" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/home_dataScienceCard"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/home_card_height"
+        android:layout_marginTop="2dp"
+        android:visibility="visible"
+        app:cardBackgroundColor="@color/light_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/home_digitalMarketingCard">
+
+        <RelativeLayout
+            android:id="@+id/home_dataScienceLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/home_data_science">
+
+            <TextView
+                android:id="@+id/home_dataScienceTxtView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="@dimen/home_card_txt_margin_top"
+                android:fontFamily="sans-serif"
+                android:text="@string/data_science"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/home_dataScienceTxtView"
                 android:layout_alignParentStart="true"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
