@@ -48,4 +48,5 @@
     <string name="game_development">Game Development</string>
     <string name="web_development">Web Development</string>
     <string name="digital_marketing">Digital Marketing</string>
+    <string name="data_science">Data Science</string>
 </resources>
