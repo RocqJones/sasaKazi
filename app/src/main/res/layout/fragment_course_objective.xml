@@ -115,4 +115,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/awardConditions" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="#31344E"
+        android:clickable="true"
+        android:contentDescription="@string/course_info"
+        android:focusable="true"
+        app:backgroundTint="#31344E"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/courseIntroVideoView"
+        app:srcCompat="@drawable/baseline_list_alt_black_24dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
