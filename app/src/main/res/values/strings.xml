@@ -49,4 +49,10 @@
     <string name="web_development">Web Development</string>
     <string name="digital_marketing">Digital Marketing</string>
     <string name="data_science">Data Science</string>
+    <string name="course_objective">Course Objective</string>
+    <string name="description_hint">Course objective description here</string>
+    <string name="instructor">Instructor</string>
+    <string name="instructor_name">Instructor name</string>
+    <string name="certification_conditions">Certification</string>
+    <string name="awarded_when">Awarded When:</string>
 </resources>
