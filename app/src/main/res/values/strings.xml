@@ -55,4 +55,5 @@
     <string name="instructor_name">Instructor name</string>
     <string name="certification_conditions">Certification</string>
     <string name="awarded_when">Awarded When:</string>
+    <string name="course_info">Course Info</string>
 </resources>
