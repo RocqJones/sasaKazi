@@ -42,8 +42,8 @@ class HomeFragment : Fragment() {
     }
 
     private fun uiRefs() {
-        mobile_card!!.findViewById<View>(R.id.home_mobileAppCard)
-        mobile_card!!.setOnClickListener { intentToObjScreen() }
+        mobile_card?.findViewById<View>(R.id.home_mobileAppCard)
+        mobile_card?.setOnClickListener { intentToObjScreen() }
     }
 
     private fun intentToObjScreen() {
