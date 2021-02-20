@@ -16,6 +16,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SasaKazi">
         <activity
+            android:name=".ui.course_objective.CourseObjectiveActivity"
+            android:label="@string/course_objective"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/Theme.SasaKazi" />
+        <activity
             android:name=".settings.EditProfileActivity"
             android:label="@string/edit_profile"
             android:parentActivityName=".ui.navdrawer.ProfileActivity"

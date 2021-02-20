@@ -11,11 +11,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.intoverflown.sasakazi.R
-import com.intoverflown.sasakazi.ui.course_objective.CourseObjectiveFragment
+import com.intoverflown.sasakazi.ui.course_objective.CourseObjectiveActivity
 
 class HomeFragment : Fragment() {
-
-
 
     private lateinit var homeViewModel: HomeViewModel
 
@@ -23,9 +21,9 @@ class HomeFragment : Fragment() {
     private var mobile_card: CardView? = null
 
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         homeViewModel =
                 ViewModelProvider(this).get(HomeViewModel::class.java)
@@ -47,6 +45,11 @@ class HomeFragment : Fragment() {
     }
 
     private fun intentToObjScreen() {
-        // TODO : add intent here
+        val intent = Intent(activity, CourseObjectiveActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        startActivity(intent)
+
+//        val b = Intent(activity, SellingSubmitDataActivity::class.java)
+//        startActivity(b)
     }
 }
