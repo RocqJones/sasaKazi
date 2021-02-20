@@ -15,11 +15,7 @@
         android:id="@+id/navigation_home"
         android:name="com.intoverflown.sasakazi.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" >
-        <action
-            android:id="@+id/action_navigation_home_to_courseObjectiveFragment"
-            app:popUpTo="@id/courseObjectiveFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_dashboard"
@@ -66,6 +62,6 @@
     <fragment
         android:id="@+id/courseObjectiveFragment"
         android:name="com.intoverflown.sasakazi.ui.course_objective.CourseObjectiveFragment"
-        android:label="fragment_course_objective"
-        tools:layout="@layout/fragment_course_objective" />
+        android:label="activity_course_objective"
+        tools:layout="@layout/activity_course_objective" />
 </navigation>
