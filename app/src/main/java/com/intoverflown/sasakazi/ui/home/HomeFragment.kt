@@ -1,5 +1,6 @@
 package com.intoverflown.sasakazi.ui.home
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -29,7 +30,7 @@ class HomeFragment : Fragment() {
                 ViewModelProvider(this).get(HomeViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_home, container, false)
         val textView: TextView = root.findViewById(R.id.text_home)
-        homeViewModel.text.observe(viewLifecycleOwner, Observer {
+        homeViewModel.text.observe(viewLifecycleOwner, {
             textView.text = it
         })
 
@@ -45,7 +46,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun intentToObjScreen() {
-        val intent = Intent(activity, CourseObjectiveActivity::class.java)
+        val intent = Intent(context, CourseObjectiveActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         startActivity(intent)
 
