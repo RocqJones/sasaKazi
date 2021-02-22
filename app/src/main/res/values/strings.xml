@@ -56,4 +56,5 @@
     <string name="certification_conditions">Certification</string>
     <string name="awarded_when">Awarded When:</string>
     <string name="course_info">Course Info</string>
+    <string name="conditions">Conditions ...</string>
 </resources>
