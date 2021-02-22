@@ -63,5 +63,5 @@
         android:id="@+id/courseObjectiveFragment"
         android:name="com.intoverflown.sasakazi.ui.course_objective.CourseObjectiveFragment"
         android:label="activity_course_objective"
-        tools:layout="@layout/activity_course_objective" />
+        tools:layout="@layout/activity_obj_mobile" />
 </navigation>

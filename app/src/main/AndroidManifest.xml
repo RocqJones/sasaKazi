@@ -16,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SasaKazi">
         <activity
-            android:name=".ui.course_objective.CourseObjectiveActivity"
+            android:name=".ui.course_objective.MobileObjActivity"
             android:label="@string/course_objective"
             android:parentActivityName=".MainActivity"
             android:theme="@style/Theme.SasaKazi" />

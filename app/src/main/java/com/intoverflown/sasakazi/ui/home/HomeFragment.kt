@@ -10,7 +10,7 @@ import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.intoverflown.sasakazi.R
-import com.intoverflown.sasakazi.ui.course_objective.CourseObjectiveActivity
+import com.intoverflown.sasakazi.ui.course_objective.MobileObjActivity
 
 class HomeFragment : Fragment() {
 
@@ -46,7 +46,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun mobileObjScreen() {
-        val intent = Intent(this@HomeFragment.context, CourseObjectiveActivity::class.java)
+        val intent = Intent(this@HomeFragment.context, MobileObjActivity::class.java)
         startActivity(intent)
 
         // set content for Mobile here
