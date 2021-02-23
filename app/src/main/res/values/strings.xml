@@ -49,4 +49,5 @@
     <string name="awarded_when">Awarded When:</string>
     <string name="course_info">Course Info</string>
     <string name="conditions">Conditions ...</string>
+    <string name="course_name">Course Name</string>
 </resources>
