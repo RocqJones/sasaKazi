@@ -19,17 +19,10 @@
     <string name="forgot_password">Forgot Password?</string>
     <string name="request_password_reset_email">Request password reset email</string>
     <string name="password_reset">Password Reset !!!</string>
-    <string name="title_activity_nav_drawer">NavDrawerActivity</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Username</string>
     <string name="nav_header_subtitle">email@example.com</string>
     <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
 
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
     <string name="logout">LogOut</string>
     <string name="profile">Profile</string>
     <string name="full_name">Full Name</string>
@@ -42,7 +35,6 @@
     <string name="add_bio">Add Bio</string>
     <string name="update_profile">Update Profile</string>
     <string name="add_your_headline">add your headline</string>
-    <string name="base_img_view">base img view</string>
     <string name="mobile_app_dev">Mobile App Development</string>
     <string name="explore_more"><![CDATA[Explore more >>>]]></string>
     <string name="game_development">Game Development</string>
