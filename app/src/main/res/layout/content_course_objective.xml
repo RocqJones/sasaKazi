@@ -9,9 +9,10 @@
         android:id="@+id/courseTxtView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="@string/course_name"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="2dp"
         android:fontFamily="sans-serif"
+        android:hint="@string/course_name"
         android:textColor="@color/welcome_txt_color"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -65,7 +66,7 @@
 
     <TextView
         android:id="@+id/objectiveDescription"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/courseObj"
         android:layout_alignParentStart="true"
@@ -137,7 +138,7 @@
         android:layout_below="@id/cert"
         android:layout_alignParentStart="true"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="4dp"
         android:fontFamily="sans-serif"
         android:text="@string/awarded_when"
         android:textColor="@color/welcome_txt_color"
@@ -148,7 +149,7 @@
 
     <TextView
         android:id="@+id/conditionsList"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/awardConditions"
         android:layout_alignParentStart="true"
