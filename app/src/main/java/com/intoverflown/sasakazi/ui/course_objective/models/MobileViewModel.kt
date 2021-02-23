@@ -5,24 +5,24 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class MobileViewModel : ViewModel() {
-    val _course = MutableLiveData<String>().apply {
+    private val _course = MutableLiveData<String>().apply {
         value = "Mobile App Development"
     }
-    val _youtube_link = MutableLiveData<String>().apply {
+    private val _youtube_link = MutableLiveData<String>().apply {
         value = "https://youtu.be/WvwwL0TwH6U"
     }
 
-    val _course_objective = MutableLiveData<String>().apply {
+    private val _course_objective = MutableLiveData<String>().apply {
         value = "You will learn the the basis of the Android platform and the application lifecycle. " +
                 "You will be able to write simple GUI applications, use built-in widgets and components, " +
                 "work with the database to store data locally, and much more by the end of this Android training course."
     }
 
-    val _instructor_name = MutableLiveData<String>().apply {
+    private val _instructor_name = MutableLiveData<String>().apply {
         value = "Jones Mbindyo"
     }
 
-    val _cert_requirements = MutableLiveData<String>().apply {
+    private val _cert_requirements = MutableLiveData<String>().apply {
         value = "Note: You must complete the Andela survey in your Pluralsight Skills, " +
                 "track-focused channel, in order to be eligible for Learning Phase I "
     }
