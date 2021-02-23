@@ -6,8 +6,11 @@ import androidx.lifecycle.ViewModel
 
 class CourseObjectiveViewModel : ViewModel() {
     private fun mobileData() {
+        val _course = MutableLiveData<String>().apply {
+            value = "Mobile App Development"
+        }
         val _youtube_link = MutableLiveData<String>().apply {
-            value = ""
+            value = "https://youtu.be/WvwwL0TwH6U"
         }
 
         val _course_objective = MutableLiveData<String>().apply {
@@ -25,6 +28,7 @@ class CourseObjectiveViewModel : ViewModel() {
                     "track-focused channel, in order to be eligible for Learning Phase I "
         }
 
+        val course : LiveData<String> = _course
         val text_youtube : LiveData<String> = _youtube_link
         val text_course_obj : LiveData<String> = _course_objective
         val text_instructor_name : LiveData<String> = _instructor_name
