@@ -28,7 +28,7 @@ class MobileViewModel : ViewModel() {
     }
 
     val course : LiveData<String> = _course
-    val text_youtube : LiveData<String> = _youtube_link
+    val youtube_link : LiveData<String> = _youtube_link
     val text_course_obj : LiveData<String> = _course_objective
     val text_instructor_name : LiveData<String> = _instructor_name
     val text_cert_requirements : LiveData<String> = _cert_requirements
