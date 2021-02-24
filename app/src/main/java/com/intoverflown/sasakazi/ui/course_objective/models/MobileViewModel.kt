@@ -9,7 +9,7 @@ class MobileViewModel : ViewModel() {
         value = "Mobile App Development"
     }
     private val _youtubeLink = MutableLiveData<String>().apply {
-        value = "https://youtu.be/WvwwL0TwH6U"
+        value = "https://youtu.be/snqMchRhQnk"
     }
 
     private val _courseObjective = MutableLiveData<String>().apply {
