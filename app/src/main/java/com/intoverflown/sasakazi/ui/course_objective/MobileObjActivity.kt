@@ -1,7 +1,9 @@
 package com.intoverflown.sasakazi.ui.course_objective
 
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import android.widget.MediaController
 import android.widget.TextView
 import android.widget.VideoView
 import androidx.appcompat.app.AppCompatActivity
@@ -50,5 +52,21 @@ class MobileObjActivity : AppCompatActivity() {
         mobileViewModel.textCertRequirements.observe(this) {
             cert_conditions!!.text = it
         }
+
+        playVideo()
+    }
+
+    private fun playVideo() {
+        val mediacontroller = MediaController(this)
+        mediacontroller.setAnchorView(intro_video)
+        val vidUrl : Uri = Uri.parse(
+                mobileViewModel.youtubeLink.observe(this) {
+                    it
+                }.toString()
+        )
+        intro_video!!.setMediaController(mediacontroller)
+        intro_video!!.setVideoURI(vidUrl)
+        intro_video!!.requestFocus()
+        intro_video!!.start()
     }
 }
