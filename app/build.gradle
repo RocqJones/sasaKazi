@@ -79,7 +79,4 @@ dependencies {
     // YouTube Player
     def youtube_player_version = "10.0.5"
     implementation "com.pierfrancescosoffritti.androidyoutubeplayer:core:$youtube_player_version"
-
-    // YouTube Android Player API
-    api files('libs/YouTubeAndroidPlayerApi.jar')
 }
