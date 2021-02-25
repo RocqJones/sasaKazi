@@ -31,12 +31,10 @@ class MobileObjActivity : AppCompatActivity() {
         mobileViewModel = ViewModelProvider(this).get(MobileViewModel::class.java)
 
 //        course_txtView = findViewById<View>(R.id.courseTxtView) as TextView
-//        intro_video = findViewById<View>(R.id.courseIntroVideoView) as YouTubePlayerSupportFragment
+        vidPlayerView = findViewById(R.id.youtubePlayerView)
         obj_description = findViewById<View>(R.id.objectiveDescription) as TextView
         instructor_name = findViewById<View>(R.id.instructorName) as TextView
         cert_conditions = findViewById<View>(R.id.conditionsList) as TextView
-        vidPlayerView = findViewById(R.id.youtubePlayerView)
-//        youtubeVidFrame = supportFragmentManager.findFragmentById(R.id.youTubeFrameLayout) as YouTubePlayerSupportFragment
 
         // set mutable LiveData
         setLiveDataHere()
@@ -72,41 +70,21 @@ class MobileObjActivity : AppCompatActivity() {
     private fun playVideo() {
         // extract link id first
         val extractedVidID : String? = fullUrl.substringAfterLast("youtu.be/")
-//        youtubeVidFrame.initialize(YOUTUBE_API_KEY, YouTubePlayer.OnIniti)
 
         vidPlayerView!!.let { lifecycle.addObserver(it) }
-//        get.addObserver(vidPlayerView!!)
-//        getLifecycle().addObserver(vidPlayerView!!)
 
         vidPlayerView!!.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
             override fun onReady(youTubePlayer: YouTubePlayer) {
-                val videoId = extractedVidID
-//                val videoId = "snqMchRhQnk"
-                if (videoId != null) {
-                    Log.i("YouTubeID: ", videoId)
+                if (extractedVidID != null) {
+                    // show id on logcat
+                    Log.i("YouTubeID: ", extractedVidID)
                 }
-//                youTubePlayer.loadVideo(videoId, 0F)
-                videoId.let {
+                extractedVidID.let {
                     if (it != null) {
                         youTubePlayer.loadVideo(it, 0F)
                     }
                 }
             }
         })
-
-//        vidPlayerView?.let { getLifecycle().addObserver(it) }
-
-
-//        val mediacontroller = MediaController(this)
-//        mediacontroller.setAnchorView(intro_video)
-//        val vidUrl : Uri = Uri.parse(
-//                mobileViewModel.youtubeLink.observe(this) {
-//                    it
-//                }.toString()
-//        )
-//        intro_video!!.setMediaController(mediacontroller)
-//        intro_video!!.setVideoURI(vidUrl)
-//        intro_video!!.requestFocus()
-//        intro_video!!.start()
     }
 }
