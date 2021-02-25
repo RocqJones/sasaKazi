@@ -17,7 +17,7 @@
         android:theme="@style/Theme.SasaKazi">
         <activity
             android:name=".ui.course_objective.MobileObjActivity"
-            android:label="@string/course_objective"
+            android:label="@string/mobile_obj"
             android:parentActivityName=".MainActivity"
             android:theme="@style/Theme.SasaKazi" />
         <activity
