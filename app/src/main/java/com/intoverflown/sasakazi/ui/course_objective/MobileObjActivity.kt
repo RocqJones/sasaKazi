@@ -31,10 +31,10 @@ class MobileObjActivity : AppCompatActivity() {
         mobileViewModel = ViewModelProvider(this).get(MobileViewModel::class.java)
 
 //        course_txtView = findViewById<View>(R.id.courseTxtView) as TextView
-        vidPlayerView = findViewById(R.id.youtubePlayerView)
         obj_description = findViewById<View>(R.id.objectiveDescription) as TextView
         instructor_name = findViewById<View>(R.id.instructorName) as TextView
         cert_conditions = findViewById<View>(R.id.conditionsList) as TextView
+        vidPlayerView = findViewById(R.id.youtubePlayerView)
 
         // set mutable LiveData
         setLiveDataHere()
@@ -75,11 +75,12 @@ class MobileObjActivity : AppCompatActivity() {
 
         vidPlayerView!!.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
             override fun onReady(youTubePlayer: YouTubePlayer) {
-                if (extractedVidID != null) {
-                    // show id on logcat
-                    Log.i("YouTubeID: ", extractedVidID)
+                val videoId = extractedVidID
+                if (videoId != null) {
+                    Log.i("YouTubeID: ", videoId)
                 }
-                extractedVidID.let {
+
+                videoId.let {
                     if (it != null) {
                         youTubePlayer.loadVideo(it, 0F)
                     }
