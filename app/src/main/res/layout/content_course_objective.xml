@@ -5,19 +5,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/light_background">
 
-    <TextView
-        android:id="@+id/courseTxtView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="2dp"
-        android:fontFamily="sans-serif"
-        android:hint="@string/course_name"
-        android:textColor="@color/welcome_txt_color"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+<!--    <TextView-->
+<!--        android:id="@+id/courseTxtView"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="8dp"-->
+<!--        android:layout_marginTop="2dp"-->
+<!--        android:fontFamily="sans-serif"-->
+<!--        android:hint="@string/course_name"-->
+<!--        android:textColor="@color/welcome_txt_color"-->
+<!--        android:textSize="24sp"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
 
     <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
         android:id="@+id/youtubePlayerView"
@@ -26,22 +26,9 @@
         android:layout_marginTop="8dp"
         android:layout_marginStart="2dp"
         android:layout_marginEnd="2dp"
-        app:showFullScreenButton="false"
-        app:videoId="snqMchRhQnk"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/courseTxtView" />
-
-    <VideoView
-        android:id="@+id/courseIntroVideoView"
-        android:layout_width="match_parent"
-        android:layout_height="245dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginEnd="2dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/youtubePlayerView" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/courseObj"
@@ -57,7 +44,7 @@
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/courseIntroVideoView" />
+        app:layout_constraintTop_toBottomOf="@+id/youtubePlayerView" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingMobileActionButton"
@@ -74,7 +61,7 @@
         android:focusable="true"
         app:backgroundTint="@color/solid_background"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/courseIntroVideoView"
+        app:layout_constraintTop_toBottomOf="@+id/youtubePlayerView"
         app:srcCompat="@drawable/baseline_view_list_black_36dp" />
 
     <TextView
