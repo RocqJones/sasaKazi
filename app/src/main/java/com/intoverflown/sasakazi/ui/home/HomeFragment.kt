@@ -47,6 +47,7 @@ class HomeFragment : Fragment() {
 
     private fun mobileObjScreen() {
         val intent = Intent(this@HomeFragment.context, MobileObjActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         startActivity(intent)
 
         // set content for Mobile here
