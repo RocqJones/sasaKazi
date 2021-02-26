@@ -42,20 +42,6 @@ class MobileObjActivity : AppCompatActivity() {
         mobileFloatActionBtn = findViewById<View>(R.id.floatingActionBtn) as FloatingActionButton
         mobileFloatBtnView = findViewById(R.id.floatingBtnView)
 
-//        mobileFloatActionBtn!!.setOnClickListener {
-//            mobileFloatBtnLayout!!.visibility = View.VISIBLE
-//            mobileFloatBtnLayout!!.visibility(if ())
-//        }
-
-
-
-//        myButton.setOnClickListener(object : OnClickListener() {
-//            fun onClick(v: View?) {
-//                mytxtvw.setVisibility(if (mytxtvw.getVisibility() === View.VISIBLE) View.GONE else View.VISIBLE)
-//            }
-//        })
-
-
         // set mutable LiveData
         setLiveDataHere()
     }
