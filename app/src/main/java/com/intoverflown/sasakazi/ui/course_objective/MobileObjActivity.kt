@@ -57,35 +57,29 @@ class MobileObjActivity : AppCompatActivity() {
         }
 
         // get url and extract the link id in the subsequent function
-        fullUrl = mobileViewModel.youtubeLink.observe(this) {
-            it
-        }.toString()
+        mobileViewModel.youtubeLink.observe(this) { it ->
+            fullUrl = it
 
-        Log.i("YouTubeURL: ", fullUrl)
+            Log.i("YouTubeURL: ", fullUrl)
 
-        playVideo()
-    }
+            // extract link id first
+            val extractedVidID : String? = fullUrl.substringAfterLast("youtu.be/")
 
+            vidPlayerView!!.let { lifecycle.addObserver(it) }
 
-    private fun playVideo() {
-        // extract link id first
-        val extractedVidID : String? = fullUrl.substringAfterLast("youtu.be/")
+            vidPlayerView!!.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
+                override fun onReady(youTubePlayer: YouTubePlayer) {
+                    if (extractedVidID != null) {
+                        Log.i("YouTubeID: ", extractedVidID)
+                    }
 
-        vidPlayerView!!.let { lifecycle.addObserver(it) }
-
-        vidPlayerView!!.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
-            override fun onReady(youTubePlayer: YouTubePlayer) {
-                val videoId = extractedVidID
-                if (videoId != null) {
-                    Log.i("YouTubeID: ", videoId)
-                }
-
-                videoId.let {
-                    if (it != null) {
-                        youTubePlayer.loadVideo(it, 0F)
+                    extractedVidID.let { it1 ->
+                        if (it1 != null) {
+                            youTubePlayer.loadVideo(it1, 0F)
+                        }
                     }
                 }
-            }
-        })
+            })
+        }
     }
 }
