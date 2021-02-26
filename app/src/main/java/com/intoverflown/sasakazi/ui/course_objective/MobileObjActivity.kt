@@ -3,9 +3,11 @@ package com.intoverflown.sasakazi.ui.course_objective
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.intoverflown.sasakazi.R
 import com.intoverflown.sasakazi.ui.course_objective.models.MobileViewModel
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
@@ -16,11 +18,13 @@ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTube
 class MobileObjActivity : AppCompatActivity() {
 
     // UI elements
-    private var course_txtView : TextView? = null
-    private var obj_description : TextView? = null
-    private var instructor_name : TextView? = null
-    private var cert_conditions : TextView? = null
-    private var vidPlayerView : YouTubePlayerView? = null
+    private var mobileCourseTxtView : TextView? = null
+    private var mobileObjDescription : TextView? = null
+    private var mobileInstructorName : TextView? = null
+    private var mobileCertConditions : TextView? = null
+    private var mobileVidPlayerView : YouTubePlayerView? = null
+    private var mobileFloatActionBtn : FloatingActionButton? = null
+    private var mobileFloatBtnView : View? = null
 
     private lateinit var fullUrl : String
     private lateinit var mobileViewModel : MobileViewModel
@@ -30,11 +34,27 @@ class MobileObjActivity : AppCompatActivity() {
         setContentView(R.layout.activity_obj_mobile)
         mobileViewModel = ViewModelProvider(this).get(MobileViewModel::class.java)
 
-//        course_txtView = findViewById<View>(R.id.courseTxtView) as TextView
-        obj_description = findViewById<View>(R.id.objectiveDescription) as TextView
-        instructor_name = findViewById<View>(R.id.instructorName) as TextView
-        cert_conditions = findViewById<View>(R.id.conditionsList) as TextView
-        vidPlayerView = findViewById(R.id.youtubePlayerView)
+//        mobileCourseTxtView = findViewById<View>(R.id.courseTxtView) as TextView
+        mobileObjDescription = findViewById<View>(R.id.objectiveDescription) as TextView
+        mobileInstructorName = findViewById<View>(R.id.instructorName) as TextView
+        mobileCertConditions = findViewById<View>(R.id.conditionsList) as TextView
+        mobileVidPlayerView = findViewById(R.id.youtubePlayerView)
+        mobileFloatActionBtn = findViewById<View>(R.id.floatingActionBtn) as FloatingActionButton
+        mobileFloatBtnView = findViewById(R.id.floatingBtnView)
+
+//        mobileFloatActionBtn!!.setOnClickListener {
+//            mobileFloatBtnLayout!!.visibility = View.VISIBLE
+//            mobileFloatBtnLayout!!.visibility(if ())
+//        }
+
+
+
+//        myButton.setOnClickListener(object : OnClickListener() {
+//            fun onClick(v: View?) {
+//                mytxtvw.setVisibility(if (mytxtvw.getVisibility() === View.VISIBLE) View.GONE else View.VISIBLE)
+//            }
+//        })
+
 
         // set mutable LiveData
         setLiveDataHere()
@@ -42,18 +62,18 @@ class MobileObjActivity : AppCompatActivity() {
 
     private fun setLiveDataHere() {
 //        mobileViewModel.course.observe(this) {
-//            course_txtView!!.text = it
+//            mobileCourseTxtView!!.text = it
 //        }
 
         mobileViewModel.textCourseObj.observe(this) {
-            obj_description!!.text = it
+            mobileObjDescription!!.text = it
         }
 
         mobileViewModel.textInstructorName.observe(this) {
-            instructor_name!!.text = it
+            mobileInstructorName!!.text = it
         }
         mobileViewModel.textCertRequirements.observe(this) {
-            cert_conditions!!.text = it
+            mobileCertConditions!!.text = it
         }
 
         // get url and extract the link id in the subsequent function
@@ -62,12 +82,12 @@ class MobileObjActivity : AppCompatActivity() {
 
             Log.i("YouTubeURL: ", fullUrl)
 
-            // extract link id first
+            // extract link id from url
             val extractedVidID : String? = fullUrl.substringAfterLast("youtu.be/")
 
-            vidPlayerView!!.let { lifecycle.addObserver(it) }
+            mobileVidPlayerView!!.let { lifecycle.addObserver(it) }
 
-            vidPlayerView!!.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
+            mobileVidPlayerView!!.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
                 override fun onReady(youTubePlayer: YouTubePlayer) {
                     if (extractedVidID != null) {
                         Log.i("YouTubeID: ", extractedVidID)
@@ -80,6 +100,13 @@ class MobileObjActivity : AppCompatActivity() {
                     }
                 }
             })
+        }
+
+        mobileFloatActionBtn!!.setOnClickListener {
+            if (mobileFloatBtnView!!.visibility == View.GONE)
+                mobileFloatBtnView!!.visibility = View.VISIBLE
+            else
+                mobileFloatBtnView!!.visibility = View.GONE
         }
     }
 }
