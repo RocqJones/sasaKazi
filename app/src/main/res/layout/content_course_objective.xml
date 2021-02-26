@@ -67,6 +67,80 @@
         app:layout_constraintTop_toBottomOf="@+id/youtubePlayerView"
         app:srcCompat="@drawable/baseline_view_list_black_36dp" />
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/floatingMobileActionButton">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/solid_background"
+            android:textSize="12sp"
+            android:text="@string/resources" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/resources"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:clickable="true"
+            android:layout_gravity="center"
+            android:contentDescription="@string/resources"
+            app:fabSize="mini"
+            app:backgroundTint="@color/light_background"
+            app:srcCompat="@drawable/baseline_menu_book_black_24dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/solid_background"
+            android:textSize="12sp"
+            android:text="@string/discussion" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/discussion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:clickable="true"
+            android:layout_gravity="center"
+            android:contentDescription="@string/resources"
+            app:fabSize="mini"
+            app:backgroundTint="@color/light_background"
+            app:srcCompat="@drawable/baseline_chat_black_24dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/solid_background"
+            android:textSize="12sp"
+            android:text="@string/assignment" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/assignment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:clickable="true"
+            android:layout_gravity="center"
+            android:contentDescription="@string/resources"
+            app:fabSize="mini"
+            app:backgroundTint="@color/light_background"
+            app:srcCompat="@drawable/baseline_assignment_black_24dp" />
+
+    </LinearLayout>
+
     <TextView
         android:id="@+id/objectiveDescription"
         android:layout_width="match_parent"
