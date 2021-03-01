@@ -18,7 +18,6 @@ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTube
 class MobileObjActivity : AppCompatActivity() {
 
     // UI elements
-    private var mobileCourseTxtView : TextView? = null
     private var mobileObjDescription : TextView? = null
     private var mobileInstructorName : TextView? = null
     private var mobileCertConditions : TextView? = null
@@ -34,7 +33,6 @@ class MobileObjActivity : AppCompatActivity() {
         setContentView(R.layout.activity_obj_mobile)
         mobileViewModel = ViewModelProvider(this).get(MobileViewModel::class.java)
 
-//        mobileCourseTxtView = findViewById<View>(R.id.courseTxtView) as TextView
         mobileObjDescription = findViewById<View>(R.id.objectiveDescription) as TextView
         mobileInstructorName = findViewById<View>(R.id.instructorName) as TextView
         mobileCertConditions = findViewById<View>(R.id.conditionsList) as TextView
@@ -47,10 +45,6 @@ class MobileObjActivity : AppCompatActivity() {
     }
 
     private fun setLiveDataHere() {
-//        mobileViewModel.course.observe(this) {
-//            mobileCourseTxtView!!.text = it
-//        }
-
         mobileViewModel.textCourseObj.observe(this) {
             mobileObjDescription!!.text = it
         }
