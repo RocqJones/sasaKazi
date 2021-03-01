@@ -16,7 +16,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SasaKazi">
         <activity
-            android:name=".ui.course_objective.DigitalMarketingActivity"
+            android:name=".ui.course_objective.DataScienceObjActivity"
+            android:label="@string/data_science"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/Theme.SasaKazi"/>
+        <activity
+            android:name=".ui.course_objective.DigitalMarketingObjActivity"
             android:label="@string/digital_marketing"
             android:parentActivityName=".MainActivity"
             android:theme="@style/Theme.SasaKazi" />

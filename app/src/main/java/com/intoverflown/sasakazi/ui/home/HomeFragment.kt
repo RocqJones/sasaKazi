@@ -10,10 +10,7 @@ import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.intoverflown.sasakazi.R
-import com.intoverflown.sasakazi.ui.course_objective.DigitalMarketingActivity
-import com.intoverflown.sasakazi.ui.course_objective.GameObjActivity
-import com.intoverflown.sasakazi.ui.course_objective.MobileObjActivity
-import com.intoverflown.sasakazi.ui.course_objective.WebObjActivity
+import com.intoverflown.sasakazi.ui.course_objective.*
 
 class HomeFragment : Fragment() {
 
@@ -26,6 +23,7 @@ class HomeFragment : Fragment() {
     private var webCard: CardView? = null
     private var gameCard: CardView? = null
     private var digitalMrktCard : CardView? = null
+    private var dataScience: CardView? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -41,6 +39,7 @@ class HomeFragment : Fragment() {
         webCard = root.findViewById(R.id.home_webAppCard)
         gameCard = root.findViewById(R.id.home_gameDevCard)
         digitalMrktCard = root.findViewById(R.id.home_digitalMarketingCard)
+        dataScience = root.findViewById(R.id.home_dataScienceCard)
 
         // intent to base course screens
         uiScreenTransactions()
@@ -72,9 +71,16 @@ class HomeFragment : Fragment() {
 
         digitalMrktCard!!.setOnClickListener {
             Log.d(TAG, "Digital Market Card onClick: Success")
-            val digitalIntent = Intent(this@HomeFragment.context, DigitalMarketingActivity::class.java)
+            val digitalIntent = Intent(this@HomeFragment.context, DigitalMarketingObjActivity::class.java)
             digitalIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(digitalIntent)
+        }
+
+        dataScience!!.setOnClickListener {
+            Log.d(TAG, "Digital Market Card onClick: Success")
+            val dataScIntent = Intent(this@HomeFragment.context, DataScienceObjActivity::class.java)
+            dataScIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            startActivity(dataScIntent)
         }
     }
 }
