@@ -10,6 +10,7 @@ import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.intoverflown.sasakazi.R
+import com.intoverflown.sasakazi.ui.course_objective.GameObjActivity
 import com.intoverflown.sasakazi.ui.course_objective.MobileObjActivity
 import com.intoverflown.sasakazi.ui.course_objective.WebObjActivity
 
@@ -22,6 +23,7 @@ class HomeFragment : Fragment() {
     // UI
     private var mobileCard: CardView? = null
     private var webCard: CardView? = null
+    private var gameCard: CardView? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -35,6 +37,7 @@ class HomeFragment : Fragment() {
         // UI references
         mobileCard = root.findViewById(R.id.home_mobileAppCard)
         webCard = root.findViewById(R.id.home_webAppCard)
+        gameCard = root.findViewById(R.id.home_gameDevCard)
 
         // intent to base course screens
         uiScreenTransactions()
@@ -55,6 +58,13 @@ class HomeFragment : Fragment() {
             val webIntent = Intent(this@HomeFragment.context, WebObjActivity::class.java)
             webIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(webIntent)
+        }
+
+        gameCard!!.setOnClickListener {
+            Log.d(TAG, "Game Card onClick: Success")
+            val gameIntent = Intent(this@HomeFragment.context, GameObjActivity::class.java)
+            gameIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            startActivity(gameIntent)
         }
     }
 }

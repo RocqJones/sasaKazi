@@ -16,6 +16,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SasaKazi">
         <activity
+            android:name=".ui.course_objective.GameObjActivity"
+            android:label="@string/game_development"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/Theme.SasaKazi" />
+        <activity
             android:name=".ui.course_objective.WebObjActivity"
             android:label="@string/web_development"
             android:parentActivityName=".MainActivity"
