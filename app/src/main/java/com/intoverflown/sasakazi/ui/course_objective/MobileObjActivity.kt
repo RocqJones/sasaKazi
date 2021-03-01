@@ -6,13 +6,17 @@ import android.view.View
 import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.intoverflown.sasakazi.R
 import com.intoverflown.sasakazi.ui.course_objective.models.MobileViewModel
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.YouTubePlayerFullScreenListener
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.YouTubePlayerListener
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.ui.PlayerUiController
 
 
 class MobileObjActivity : AppCompatActivity() {
@@ -24,6 +28,7 @@ class MobileObjActivity : AppCompatActivity() {
     private var mobileVidPlayerView : YouTubePlayerView? = null
     private var mobileFloatActionBtn : FloatingActionButton? = null
     private var mobileFloatBtnView : View? = null
+    private var mobileBaseLayout : ConstraintLayout? = null
 
     private lateinit var fullUrl : String
     private lateinit var mobileViewModel : MobileViewModel
@@ -39,6 +44,7 @@ class MobileObjActivity : AppCompatActivity() {
         mobileVidPlayerView = findViewById(R.id.youtubePlayerView)
         mobileFloatActionBtn = findViewById<View>(R.id.floatingActionBtn) as FloatingActionButton
         mobileFloatBtnView = findViewById(R.id.floatingBtnView)
+        mobileBaseLayout = findViewById(R.id.rootLayout)
 
         // set mutable LiveData
         setLiveDataHere()
@@ -75,18 +81,33 @@ class MobileObjActivity : AppCompatActivity() {
 
                     extractedVidID.let { it1 ->
                         if (it1 != null) {
-                            youTubePlayer.loadVideo(it1, 0F)
+                            youTubePlayer.cueVideo(it1, 0F)
+
                         }
                     }
                 }
             })
+
+//            mobileVidPlayerView!!.enterFullScreen()
+//            mobileVidPlayerView!!.exitFullScreen()
+//            mobileVidPlayerView!!.isFullScreen()
+//            mobileVidPlayerView!!.toggleFullScreen()
         }
 
         mobileFloatActionBtn!!.setOnClickListener {
-            if (mobileFloatBtnView!!.visibility == View.GONE)
+            if (mobileFloatBtnView!!.visibility == View.GONE) {
                 mobileFloatBtnView!!.visibility = View.VISIBLE
-            else
+                // when you touch outside the view
+                mobileBaseLayout!!.setOnClickListener {
+                    if (mobileFloatBtnView!!.visibility == View.VISIBLE) {
+                        mobileFloatBtnView!!.visibility = View.GONE
+                    }
+                }
+            }
+
+            else {
                 mobileFloatBtnView!!.visibility = View.GONE
+            }
         }
     }
 }
