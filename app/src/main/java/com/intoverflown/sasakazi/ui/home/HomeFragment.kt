@@ -10,6 +10,7 @@ import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.intoverflown.sasakazi.R
+import com.intoverflown.sasakazi.ui.course_objective.DigitalMarketingActivity
 import com.intoverflown.sasakazi.ui.course_objective.GameObjActivity
 import com.intoverflown.sasakazi.ui.course_objective.MobileObjActivity
 import com.intoverflown.sasakazi.ui.course_objective.WebObjActivity
@@ -24,6 +25,7 @@ class HomeFragment : Fragment() {
     private var mobileCard: CardView? = null
     private var webCard: CardView? = null
     private var gameCard: CardView? = null
+    private var digitalMrktCard : CardView? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -38,6 +40,7 @@ class HomeFragment : Fragment() {
         mobileCard = root.findViewById(R.id.home_mobileAppCard)
         webCard = root.findViewById(R.id.home_webAppCard)
         gameCard = root.findViewById(R.id.home_gameDevCard)
+        digitalMrktCard = root.findViewById(R.id.home_digitalMarketingCard)
 
         // intent to base course screens
         uiScreenTransactions()
@@ -65,6 +68,13 @@ class HomeFragment : Fragment() {
             val gameIntent = Intent(this@HomeFragment.context, GameObjActivity::class.java)
             gameIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(gameIntent)
+        }
+
+        digitalMrktCard!!.setOnClickListener {
+            Log.d(TAG, "Digital Market Card onClick: Success")
+            val digitalIntent = Intent(this@HomeFragment.context, DigitalMarketingActivity::class.java)
+            digitalIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            startActivity(digitalIntent)
         }
     }
 }
