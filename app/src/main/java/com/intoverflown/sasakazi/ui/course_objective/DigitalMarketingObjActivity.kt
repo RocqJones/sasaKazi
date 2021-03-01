@@ -14,7 +14,7 @@ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
 
-class DigitalMarketingActivity : AppCompatActivity() {
+class DigitalMarketingObjActivity : AppCompatActivity() {
 
     // UI elements
     private var digitalObjDescription : TextView? = null
