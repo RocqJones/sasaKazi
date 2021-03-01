@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class MobileViewModel : ViewModel() {
+class ViewModelMobile : ViewModel() {
     private val _youtubeLink = MutableLiveData<String>().apply {
         value = "https://youtu.be/snqMchRhQnk"
     }

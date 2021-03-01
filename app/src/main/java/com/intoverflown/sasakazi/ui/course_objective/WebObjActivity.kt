@@ -9,7 +9,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.intoverflown.sasakazi.R
-import com.intoverflown.sasakazi.ui.course_objective.models.WebViewModel
+import com.intoverflown.sasakazi.ui.course_objective.models.ViewModelWeb
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
@@ -26,13 +26,13 @@ class WebObjActivity : AppCompatActivity() {
     private var webBaseLayout : ConstraintLayout? = null
 
     private lateinit var fullUrl : String
-    private lateinit var webViewModel : WebViewModel
+    private lateinit var viewModelWeb : ViewModelWeb
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_obj_web)
 
-        webViewModel = ViewModelProvider(this).get(WebViewModel::class.java)
+        viewModelWeb = ViewModelProvider(this).get(ViewModelWeb::class.java)
 
         webFloatActionBtn = findViewById<View>(R.id.floatingActionBtn) as FloatingActionButton
         webObjDescription = findViewById<View>(R.id.objectiveDescription) as TextView
@@ -47,19 +47,19 @@ class WebObjActivity : AppCompatActivity() {
     }
 
     private fun setWebLiveDataHere() {
-        webViewModel.textCourseObj.observe(this) {
+        viewModelWeb.textCourseObj.observe(this) {
             webObjDescription!!.text = it
         }
 
-        webViewModel.textInstructorName.observe(this) {
+        viewModelWeb.textInstructorName.observe(this) {
             webInstructorName!!.text = it
         }
-        webViewModel.textCertRequirements.observe(this) {
+        viewModelWeb.textCertRequirements.observe(this) {
             webCertConditions!!.text = it
         }
 
         // get url and extract the link id in the subsequent function
-        webViewModel.youtubeLink.observe(this) { it ->
+        viewModelWeb.youtubeLink.observe(this) { it ->
             fullUrl = it
 
             Log.i("YouTubeURL: ", fullUrl)

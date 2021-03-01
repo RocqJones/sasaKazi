@@ -3,20 +3,16 @@ package com.intoverflown.sasakazi.ui.course_objective
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.intoverflown.sasakazi.R
-import com.intoverflown.sasakazi.ui.course_objective.models.MobileViewModel
+import com.intoverflown.sasakazi.ui.course_objective.models.ViewModelMobile
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
-import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.YouTubePlayerFullScreenListener
-import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.YouTubePlayerListener
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
-import com.pierfrancescosoffritti.androidyoutubeplayer.core.ui.PlayerUiController
 
 
 class MobileObjActivity : AppCompatActivity() {
@@ -31,12 +27,12 @@ class MobileObjActivity : AppCompatActivity() {
     private var mobileBaseLayout : ConstraintLayout? = null
 
     private lateinit var fullUrl : String
-    private lateinit var mobileViewModel : MobileViewModel
+    private lateinit var viewModelMobile : ViewModelMobile
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_obj_mobile)
-        mobileViewModel = ViewModelProvider(this).get(MobileViewModel::class.java)
+        viewModelMobile = ViewModelProvider(this).get(ViewModelMobile::class.java)
 
         mobileObjDescription = findViewById<View>(R.id.objectiveDescription) as TextView
         mobileInstructorName = findViewById<View>(R.id.instructorName) as TextView
@@ -51,19 +47,19 @@ class MobileObjActivity : AppCompatActivity() {
     }
 
     private fun setLiveDataHere() {
-        mobileViewModel.textCourseObj.observe(this) {
+        viewModelMobile.textCourseObj.observe(this) {
             mobileObjDescription!!.text = it
         }
 
-        mobileViewModel.textInstructorName.observe(this) {
+        viewModelMobile.textInstructorName.observe(this) {
             mobileInstructorName!!.text = it
         }
-        mobileViewModel.textCertRequirements.observe(this) {
+        viewModelMobile.textCertRequirements.observe(this) {
             mobileCertConditions!!.text = it
         }
 
         // get url and extract the link id in the subsequent function
-        mobileViewModel.youtubeLink.observe(this) { it ->
+        viewModelMobile.youtubeLink.observe(this) { it ->
             fullUrl = it
 
             Log.i("YouTubeURL: ", fullUrl)
