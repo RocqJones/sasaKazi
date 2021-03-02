@@ -8,4 +8,5 @@
     <color name="welcome_txt_color">#3C4040</color>
     <color name="solid_background">#31344E</color>
     <color name="light_background">#C4C4C4</color>
+    <color name="link_color">#3146BE</color>
 </resources>

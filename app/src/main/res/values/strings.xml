@@ -54,4 +54,13 @@
     <string name="resources">Resources</string>
     <string name="discussion">Discussion</string>
     <string name="assignment">Assignment</string>
+    <string name="resource_description">Resource description...</string>
+    <string name="links">Links</string>
+    <string name="books">Books</string>
+    <string name="transcripts">Transcripts</string>
+    <string name="assignment_description">Assignment Description</string>
+    <string name="exercises">Exercises</string>
+    <string name="ex_1">Ex 1</string>
+    <string name="tasks">Tasks</string>
+    <string name="task_1">Task 1</string>
 </resources>
