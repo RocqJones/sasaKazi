@@ -48,12 +48,17 @@
         app:layout_constraintTop_toBottomOf="@+id/youtubePlayerView">
 
         <include
+            android:id="@+id/objVisibility"
             android:visibility="visible"
             layout="@layout/content_course_objective" />
+
         <include
+            android:id="@+id/resourcesVisibility"
             android:visibility="gone"
             layout="@layout/content_resources" />
+
         <include
+            android:id="@+id/assignmentVisibility"
             android:visibility="gone"
             layout="@layout/content_assignment" />
 
