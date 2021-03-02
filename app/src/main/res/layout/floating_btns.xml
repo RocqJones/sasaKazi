@@ -1,124 +1,142 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@color/welcome_txt_color"
-    android:padding="4dp">
+    android:padding="2dp"
+    android:background="@color/welcome_txt_color">
 
-    <TextView
-        android:id="@+id/textViewObj"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/linearLayoutObj"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:background="@color/welcome_txt_color"
-        android:fontFamily="sans-serif"
-        android:text="@string/objective"
-        android:textColor="@color/light_background"
-        android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/objective"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/objective"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:background="@android:color/transparent"
-        android:clickable="true"
-        android:contentDescription="@string/resources"
-        android:focusable="true"
-        app:backgroundTint="@color/light_background"
-        app:fabSize="mini"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/baseline_description_black_24dp" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/textViewResources"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:background="@color/welcome_txt_color"
-        android:fontFamily="sans-serif"
-        android:text="@string/resources"
-        android:textColor="@color/light_background"
-        android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/resources"
-        app:layout_constraintTop_toBottomOf="@+id/textViewObj" />
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/objective"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:clickable="true"
+            android:contentDescription="@string/resources"
+            android:focusable="true"
+            app:backgroundTint="@color/light_background"
+            app:fabSize="mini"
+            app:srcCompat="@drawable/baseline_description_black_24dp" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/resources"
-        android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/textViewObj"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/welcome_txt_color"
+            android:fontFamily="sans-serif"
+            android:text="@string/objective"
+            android:textColor="@color/light_background"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutRes"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:background="@android:color/transparent"
-        android:clickable="true"
-        android:contentDescription="@string/resources"
-        android:focusable="true"
-        app:backgroundTint="@color/light_background"
-        app:fabSize="mini"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/objective"
-        app:srcCompat="@drawable/baseline_menu_book_black_24dp" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutObj">
 
-    <TextView
-        android:id="@+id/textViewDiscussion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="26dp"
-        android:background="@color/welcome_txt_color"
-        android:fontFamily="sans-serif"
-        android:gravity="center"
-        android:text="@string/discussion"
-        android:textColor="@color/light_background"
-        android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/discussion"
-        app:layout_constraintTop_toBottomOf="@+id/textViewResources" />
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/resources"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:clickable="true"
+            android:contentDescription="@string/resources"
+            android:focusable="true"
+            app:backgroundTint="@color/light_background"
+            app:fabSize="mini"
+            app:srcCompat="@drawable/baseline_menu_book_black_24dp" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/discussion"
-        android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/textViewResources"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/welcome_txt_color"
+            android:fontFamily="sans-serif"
+            android:text="@string/resources"
+            android:textColor="@color/light_background"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutAss"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:background="@color/welcome_txt_color"
-        android:clickable="true"
-        android:contentDescription="@string/resources"
-        android:focusable="true"
-        app:backgroundTint="@color/light_background"
-        app:fabSize="mini"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/resources"
-        app:srcCompat="@drawable/baseline_chat_black_24dp" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutRes">
 
-    <TextView
-        android:id="@+id/textViewAssignment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:background="@color/welcome_txt_color"
-        android:fontFamily="sans-serif"
-        android:gravity="center"
-        android:text="@string/assignment"
-        android:textColor="@color/light_background"
-        android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/assignment"
-        app:layout_constraintTop_toBottomOf="@+id/textViewDiscussion" />
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/assignment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@color/welcome_txt_color"
+            android:clickable="true"
+            android:contentDescription="@string/resources"
+            android:focusable="true"
+            app:backgroundTint="@color/light_background"
+            app:fabSize="mini"
+            app:srcCompat="@drawable/baseline_assignment_black_24dp" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/assignment"
-        android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/textViewAssignment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/welcome_txt_color"
+            android:fontFamily="sans-serif"
+            android:text="@string/assignment"
+            android:textColor="@color/light_background"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutDis"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:background="@color/welcome_txt_color"
-        android:clickable="true"
-        android:contentDescription="@string/resources"
-        android:focusable="true"
-        app:backgroundTint="@color/light_background"
-        app:fabSize="mini"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/discussion"
-        app:srcCompat="@drawable/baseline_assignment_black_24dp" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutAss">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/discussion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/welcome_txt_color"
+            android:clickable="true"
+            android:contentDescription="@string/resources"
+            android:focusable="true"
+            app:backgroundTint="@color/light_background"
+            app:fabSize="mini"
+            app:srcCompat="@drawable/baseline_chat_black_24dp" />
+
+        <TextView
+            android:id="@+id/textViewDiscussion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/welcome_txt_color"
+            android:fontFamily="sans-serif"
+            android:text="@string/discussion"
+            android:textColor="@color/light_background"
+            android:textSize="16sp" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
