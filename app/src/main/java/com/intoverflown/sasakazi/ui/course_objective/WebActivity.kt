@@ -25,6 +25,21 @@ class WebActivity : AppCompatActivity() {
     private var webFloatBtnView : View? = null
     private var webBaseLayout : ConstraintLayout? = null
 
+    // Float btn elements
+    private var webFloatTxtRes : TextView? = null
+    private var webFloatTxtObj : TextView? = null
+    private var webFloatTxtDis : TextView? = null
+    private var webFloatTxtAss : TextView? = null
+    private var webFloatResourceBtn : FloatingActionButton? = null
+    private var webFloatObjectiveBtn : FloatingActionButton? = null
+    private var webFloatAssignmentBtn : FloatingActionButton? = null
+    private var webFloatDiscussionBtn : FloatingActionButton? = null
+
+    // layouts View 'Gone'
+    private var webResourceVisibility: View? = null
+    private var webObjectiveVisibility: View? = null
+    private var webAssignmentVisibility: View? = null
+
     private lateinit var fullUrl : String
     private lateinit var viewModelWeb : ViewModelWeb
 
@@ -41,6 +56,21 @@ class WebActivity : AppCompatActivity() {
         webVidPlayerView = findViewById(R.id.youtubePlayerView)
         webFloatBtnView = findViewById(R.id.floatingBtnView)
         webBaseLayout = findViewById(R.id.rootLayout)
+
+        // Float btn elements
+        webFloatTxtObj = findViewById<View>(R.id.textViewObj) as TextView
+        webFloatTxtRes = findViewById<View>(R.id.textViewResources) as TextView
+        webFloatTxtDis = findViewById<View>(R.id.textViewDiscussion) as TextView
+        webFloatTxtAss = findViewById<View>(R.id.textViewAssignment) as TextView
+        webFloatResourceBtn = findViewById<View>(R.id.resources) as FloatingActionButton
+        webFloatObjectiveBtn = findViewById<View>(R.id.objective) as FloatingActionButton
+        webFloatAssignmentBtn = findViewById<View>(R.id.assignment) as FloatingActionButton
+        webFloatDiscussionBtn = findViewById<View>(R.id.discussion) as FloatingActionButton
+
+        // Views - include
+        webResourceVisibility = findViewById(R.id.resourcesVisibility)
+        webObjectiveVisibility = findViewById(R.id.objVisibility)
+        webAssignmentVisibility = findViewById(R.id.assignmentVisibility)
 
         // set mutable LiveData
         setWebLiveDataHere()
@@ -94,6 +124,55 @@ class WebActivity : AppCompatActivity() {
                         webFloatBtnView!!.visibility = View.GONE
                     }
                 }
+
+                // show resources
+                webFloatResourceBtn!!.setOnClickListener {
+                    webResourceVisibility!!.visibility = View.VISIBLE
+                    webAssignmentVisibility!!.visibility = View.GONE
+                    webObjectiveVisibility!!.visibility = View.GONE
+                    webFloatBtnView!!.visibility = View.GONE
+                }
+
+                webFloatTxtRes!!.setOnClickListener {
+                    webResourceVisibility!!.visibility = View.VISIBLE
+                    webAssignmentVisibility!!.visibility = View.GONE
+                    webObjectiveVisibility!!.visibility = View.GONE
+                    webFloatBtnView!!.visibility = View.GONE
+                }
+
+                // show assignments
+                webFloatAssignmentBtn!!.setOnClickListener {
+                    webAssignmentVisibility!!.visibility = View.VISIBLE
+                    webObjectiveVisibility!!.visibility = View.GONE
+                    webResourceVisibility!!.visibility = View.GONE
+                    webFloatBtnView!!.visibility = View.GONE
+                }
+
+                webFloatTxtAss!!.setOnClickListener {
+                    webAssignmentVisibility!!.visibility = View.VISIBLE
+                    webObjectiveVisibility!!.visibility = View.GONE
+                    webResourceVisibility!!.visibility = View.GONE
+                    webFloatBtnView!!.visibility = View.GONE
+                }
+
+                // show course objective
+                webFloatObjectiveBtn!!.setOnClickListener {
+                    webObjectiveVisibility!!.visibility = View.VISIBLE
+                    webAssignmentVisibility!!.visibility = View.GONE
+                    webResourceVisibility!!.visibility = View.GONE
+                    webFloatBtnView!!.visibility = View.GONE
+                }
+
+                webFloatTxtObj!!.setOnClickListener {
+                    webObjectiveVisibility!!.visibility = View.VISIBLE
+                    webAssignmentVisibility!!.visibility = View.GONE
+                    webResourceVisibility!!.visibility = View.GONE
+                    webFloatBtnView!!.visibility = View.GONE
+                }
+
+                // Intent to Discussion screen
+//                webFloatDiscussionBtn!!.setOnClickListener { }
+//                webFloatTxtDis!!.setOnClickListener { }
             }
 
             else {

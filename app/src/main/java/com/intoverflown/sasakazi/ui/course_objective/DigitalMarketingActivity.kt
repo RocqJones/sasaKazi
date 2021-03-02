@@ -25,6 +25,21 @@ class DigitalMarketingActivity : AppCompatActivity() {
     private var digitalFloatBtnView : View? = null
     private var digitalBaseLayout : ConstraintLayout? = null
 
+    // Float btn elements
+    private var digitalFloatTxtRes : TextView? = null
+    private var digitalFloatTxtObj : TextView? = null
+    private var digitalFloatTxtDis : TextView? = null
+    private var digitalFloatTxtAss : TextView? = null
+    private var digitalFloatResourceBtn : FloatingActionButton? = null
+    private var digitalFloatObjectiveBtn : FloatingActionButton? = null
+    private var digitalFloatAssignmentBtn : FloatingActionButton? = null
+    private var digitalFloatDiscussionBtn : FloatingActionButton? = null
+
+    // layouts View 'Gone'
+    private var digitalResourceVisibility: View? = null
+    private var digitalObjectiveVisibility: View? = null
+    private var digitalAssignmentVisibility: View? = null
+
     private lateinit var fullUrl : String
     private lateinit var viewModelDigitalMrkt : ViewModelDigitalMrkt
 
@@ -41,6 +56,21 @@ class DigitalMarketingActivity : AppCompatActivity() {
         digitalVidPlayerView = findViewById(R.id.youtubePlayerView)
         digitalFloatBtnView = findViewById(R.id.floatingBtnView)
         digitalBaseLayout = findViewById(R.id.rootLayout)
+
+        // Float btn elements
+        digitalFloatTxtObj = findViewById<View>(R.id.textViewObj) as TextView
+        digitalFloatTxtRes = findViewById<View>(R.id.textViewResources) as TextView
+        digitalFloatTxtDis = findViewById<View>(R.id.textViewDiscussion) as TextView
+        digitalFloatTxtAss = findViewById<View>(R.id.textViewAssignment) as TextView
+        digitalFloatResourceBtn = findViewById<View>(R.id.resources) as FloatingActionButton
+        digitalFloatObjectiveBtn = findViewById<View>(R.id.objective) as FloatingActionButton
+        digitalFloatAssignmentBtn = findViewById<View>(R.id.assignment) as FloatingActionButton
+        digitalFloatDiscussionBtn = findViewById<View>(R.id.discussion) as FloatingActionButton
+
+        // Views - include
+        digitalResourceVisibility = findViewById(R.id.resourcesVisibility)
+        digitalObjectiveVisibility = findViewById(R.id.objVisibility)
+        digitalAssignmentVisibility = findViewById(R.id.assignmentVisibility)
 
         // set mutable LiveData
         setDigitalMrktLiveDataHere()
@@ -94,6 +124,55 @@ class DigitalMarketingActivity : AppCompatActivity() {
                         digitalFloatBtnView!!.visibility = View.GONE
                     }
                 }
+
+                // show resources
+                digitalFloatResourceBtn!!.setOnClickListener {
+                    digitalResourceVisibility!!.visibility = View.VISIBLE
+                    digitalAssignmentVisibility!!.visibility = View.GONE
+                    digitalObjectiveVisibility!!.visibility = View.GONE
+                    digitalFloatBtnView!!.visibility = View.GONE
+                }
+
+                digitalFloatTxtRes!!.setOnClickListener {
+                    digitalResourceVisibility!!.visibility = View.VISIBLE
+                    digitalAssignmentVisibility!!.visibility = View.GONE
+                    digitalObjectiveVisibility!!.visibility = View.GONE
+                    digitalFloatBtnView!!.visibility = View.GONE
+                }
+
+                // show assignments
+                digitalFloatAssignmentBtn!!.setOnClickListener {
+                    digitalAssignmentVisibility!!.visibility = View.VISIBLE
+                    digitalObjectiveVisibility!!.visibility = View.GONE
+                    digitalResourceVisibility!!.visibility = View.GONE
+                    digitalFloatBtnView!!.visibility = View.GONE
+                }
+
+                digitalFloatTxtAss!!.setOnClickListener {
+                    digitalAssignmentVisibility!!.visibility = View.VISIBLE
+                    digitalObjectiveVisibility!!.visibility = View.GONE
+                    digitalResourceVisibility!!.visibility = View.GONE
+                    digitalFloatBtnView!!.visibility = View.GONE
+                }
+
+                // show course objective
+                digitalFloatObjectiveBtn!!.setOnClickListener {
+                    digitalObjectiveVisibility!!.visibility = View.VISIBLE
+                    digitalAssignmentVisibility!!.visibility = View.GONE
+                    digitalResourceVisibility!!.visibility = View.GONE
+                    digitalFloatBtnView!!.visibility = View.GONE
+                }
+
+                digitalFloatTxtObj!!.setOnClickListener {
+                    digitalObjectiveVisibility!!.visibility = View.VISIBLE
+                    digitalAssignmentVisibility!!.visibility = View.GONE
+                    digitalResourceVisibility!!.visibility = View.GONE
+                    digitalFloatBtnView!!.visibility = View.GONE
+                }
+
+                // Intent to Discussion screen
+//                digitalFloatDiscussionBtn!!.setOnClickListener { }
+//                digitalFloatTxtDis!!.setOnClickListener {  }
             }
 
             else {
