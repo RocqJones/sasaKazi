@@ -15,7 +15,7 @@ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.Abs
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
 
 
-class MobileObjActivity : AppCompatActivity() {
+class MobileActivity : AppCompatActivity() {
 
     // UI elements
     private var mobileObjDescription : TextView? = null

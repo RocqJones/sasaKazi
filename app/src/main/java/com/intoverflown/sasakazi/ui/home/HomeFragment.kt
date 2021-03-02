@@ -50,35 +50,35 @@ class HomeFragment : Fragment() {
     private fun uiScreenTransactions() {
         mobileCard!!.setOnClickListener {
             Log.d(TAG, "Mobile Card onClick: Success")
-            val mobileIntent = Intent(this@HomeFragment.context, MobileObjActivity::class.java)
+            val mobileIntent = Intent(this@HomeFragment.context, MobileActivity::class.java)
             mobileIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(mobileIntent)
         }
 
         webCard!!.setOnClickListener {
             Log.d(TAG, "Web Card onClick: Success")
-            val webIntent = Intent(this@HomeFragment.context, WebObjActivity::class.java)
+            val webIntent = Intent(this@HomeFragment.context, WebActivity::class.java)
             webIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(webIntent)
         }
 
         gameCard!!.setOnClickListener {
             Log.d(TAG, "Game Card onClick: Success")
-            val gameIntent = Intent(this@HomeFragment.context, GameObjActivity::class.java)
+            val gameIntent = Intent(this@HomeFragment.context, GameActivity::class.java)
             gameIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(gameIntent)
         }
 
         digitalMrktCard!!.setOnClickListener {
             Log.d(TAG, "Digital Market Card onClick: Success")
-            val digitalIntent = Intent(this@HomeFragment.context, DigitalMarketingObjActivity::class.java)
+            val digitalIntent = Intent(this@HomeFragment.context, DigitalMarketingActivity::class.java)
             digitalIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(digitalIntent)
         }
 
         dataScience!!.setOnClickListener {
             Log.d(TAG, "Digital Market Card onClick: Success")
-            val dataScIntent = Intent(this@HomeFragment.context, DataScienceObjActivity::class.java)
+            val dataScIntent = Intent(this@HomeFragment.context, DataScienceActivity::class.java)
             dataScIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(dataScIntent)
         }
