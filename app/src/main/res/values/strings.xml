@@ -51,8 +51,9 @@
     <string name="conditions">Conditions …</string>
     <string name="course_name">Course Name</string>
     <string name="mobile_obj">Mobile App Development</string>
+    <string name="objective">Objectives</string>
     <string name="resources">Resources</string>
-    <string name="discussion">Discussion</string>
+    <string name="discussion">Discussions</string>
     <string name="assignment">Assignment</string>
     <string name="resource_description">Resource description...</string>
     <string name="links">Links</string>
