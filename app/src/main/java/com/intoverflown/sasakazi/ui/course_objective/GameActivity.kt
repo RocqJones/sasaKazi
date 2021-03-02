@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.ViewModelProvider
@@ -25,15 +26,11 @@ class GameActivity : AppCompatActivity() {
     private var gameFloatBtnView : View? = null
     private var gameBaseLayout : ConstraintLayout? = null
 
-    // Float btn elements
-    private var gameFloatTxtRes : TextView? = null
-    private var gameFloatTxtObj : TextView? = null
-    private var gameFloatTxtDis : TextView? = null
-    private var gameFloatTxtAss : TextView? = null
-    private var gameFloatResourceBtn : FloatingActionButton? = null
-    private var gameFloatObjectiveBtn : FloatingActionButton? = null
-    private var gameFloatAssignmentBtn : FloatingActionButton? = null
-    private var gameFloatDiscussionBtn : FloatingActionButton? = null
+    // Float btn Linear Layout elements
+    private var gameLinearLayoutObj : LinearLayout? = null
+    private var gameLinearLayoutRes : LinearLayout? = null
+    private var gameLinearLayoutAss : LinearLayout? = null
+    private var gameLinearLayoutDis : LinearLayout? = null
 
     // layouts View 'Gone'
     private var gameResourceVisibility: View? = null
@@ -58,14 +55,10 @@ class GameActivity : AppCompatActivity() {
         gameBaseLayout = findViewById(R.id.rootLayout)
 
         // Float btn elements
-        gameFloatTxtObj = findViewById<View>(R.id.textViewObj) as TextView
-        gameFloatTxtRes = findViewById<View>(R.id.textViewResources) as TextView
-        gameFloatTxtDis = findViewById<View>(R.id.textViewDiscussion) as TextView
-        gameFloatTxtAss = findViewById<View>(R.id.textViewAssignment) as TextView
-        gameFloatResourceBtn = findViewById<View>(R.id.resources) as FloatingActionButton
-        gameFloatObjectiveBtn = findViewById<View>(R.id.objective) as FloatingActionButton
-        gameFloatAssignmentBtn = findViewById<View>(R.id.assignment) as FloatingActionButton
-        gameFloatDiscussionBtn = findViewById<View>(R.id.discussion) as FloatingActionButton
+        gameLinearLayoutObj = findViewById(R.id.linearLayoutObj)
+        gameLinearLayoutRes = findViewById(R.id.linearLayoutRes)
+        gameLinearLayoutAss = findViewById(R.id.linearLayoutAss)
+        gameLinearLayoutDis = findViewById(R.id.linearLayoutDis)
 
         // Views - include
         gameResourceVisibility = findViewById(R.id.resourcesVisibility)
@@ -126,14 +119,7 @@ class GameActivity : AppCompatActivity() {
                 }
 
                 // show resources
-                gameFloatResourceBtn!!.setOnClickListener {
-                    gameResourceVisibility!!.visibility = View.VISIBLE
-                    gameAssignmentVisibility!!.visibility = View.GONE
-                    gameObjectiveVisibility!!.visibility = View.GONE
-                    gameFloatBtnView!!.visibility = View.GONE
-                }
-
-                gameFloatTxtRes!!.setOnClickListener {
+                gameLinearLayoutRes!!.setOnClickListener {
                     gameResourceVisibility!!.visibility = View.VISIBLE
                     gameAssignmentVisibility!!.visibility = View.GONE
                     gameObjectiveVisibility!!.visibility = View.GONE
@@ -141,14 +127,7 @@ class GameActivity : AppCompatActivity() {
                 }
 
                 // show assignments
-                gameFloatAssignmentBtn!!.setOnClickListener {
-                    gameAssignmentVisibility!!.visibility = View.VISIBLE
-                    gameObjectiveVisibility!!.visibility = View.GONE
-                    gameResourceVisibility!!.visibility = View.GONE
-                    gameFloatBtnView!!.visibility = View.GONE
-                }
-
-                gameFloatTxtAss!!.setOnClickListener {
+                gameLinearLayoutAss!!.setOnClickListener {
                     gameAssignmentVisibility!!.visibility = View.VISIBLE
                     gameObjectiveVisibility!!.visibility = View.GONE
                     gameResourceVisibility!!.visibility = View.GONE
@@ -156,14 +135,7 @@ class GameActivity : AppCompatActivity() {
                 }
 
                 // show course objective
-                gameFloatObjectiveBtn!!.setOnClickListener {
-                    gameObjectiveVisibility!!.visibility = View.VISIBLE
-                    gameAssignmentVisibility!!.visibility = View.GONE
-                    gameResourceVisibility!!.visibility = View.GONE
-                    gameFloatBtnView!!.visibility = View.GONE
-                }
-
-                gameFloatTxtObj!!.setOnClickListener {
+                gameLinearLayoutObj!!.setOnClickListener {
                     gameObjectiveVisibility!!.visibility = View.VISIBLE
                     gameAssignmentVisibility!!.visibility = View.GONE
                     gameResourceVisibility!!.visibility = View.GONE
@@ -171,8 +143,7 @@ class GameActivity : AppCompatActivity() {
                 }
 
                 // Intent to Discussion screen
-//                gameFloatDiscussionBtn!!.setOnClickListener { }
-//                gameFloatTxtDis!!.setOnClickListener {  }
+//                mobileLinearLayoutDis!!.setOnClickListener {  }
             }
 
             else {

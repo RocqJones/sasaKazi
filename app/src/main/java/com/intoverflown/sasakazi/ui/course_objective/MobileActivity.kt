@@ -3,6 +3,7 @@ package com.intoverflown.sasakazi.ui.course_objective
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -26,15 +27,11 @@ class MobileActivity : AppCompatActivity() {
     private var mobileFloatBtnView : View? = null
     private var mobileBaseLayout : ConstraintLayout? = null
 
-    // Float btn elements
-    private var mobileFloatTxtRes : TextView? = null
-    private var mobileFloatTxtObj : TextView? = null
-    private var mobileFloatTxtDis : TextView? = null
-    private var mobileFloatTxtAss : TextView? = null
-    private var mobileFloatResourceBtn : FloatingActionButton? = null
-    private var mobileFloatObjectiveBtn : FloatingActionButton? = null
-    private var mobileFloatAssignmentBtn : FloatingActionButton? = null
-    private var mobileFloatDiscussionBtn : FloatingActionButton? = null
+    // Float btn Linear Layout elements
+    private var mobileLinearLayoutObj : LinearLayout? = null
+    private var mobileLinearLayoutRes : LinearLayout? = null
+    private var mobileLinearLayoutAss : LinearLayout? = null
+    private var mobileLinearLayoutDis : LinearLayout? = null
 
     // layouts View 'Gone'
     private var mobileResourceVisibility: View? = null
@@ -58,14 +55,10 @@ class MobileActivity : AppCompatActivity() {
         mobileBaseLayout = findViewById(R.id.rootLayout)
 
         // Float btn elements
-        mobileFloatTxtObj = findViewById<View>(R.id.textViewObj) as TextView
-        mobileFloatTxtRes = findViewById<View>(R.id.textViewResources) as TextView
-        mobileFloatTxtDis = findViewById<View>(R.id.textViewDiscussion) as TextView
-        mobileFloatTxtAss = findViewById<View>(R.id.textViewAssignment) as TextView
-        mobileFloatResourceBtn = findViewById<View>(R.id.resources) as FloatingActionButton
-        mobileFloatObjectiveBtn = findViewById<View>(R.id.objective) as FloatingActionButton
-        mobileFloatAssignmentBtn = findViewById<View>(R.id.assignment) as FloatingActionButton
-        mobileFloatDiscussionBtn = findViewById<View>(R.id.discussion) as FloatingActionButton
+        mobileLinearLayoutObj = findViewById(R.id.linearLayoutObj)
+        mobileLinearLayoutRes = findViewById(R.id.linearLayoutRes)
+        mobileLinearLayoutAss = findViewById(R.id.linearLayoutAss)
+        mobileLinearLayoutDis = findViewById(R.id.linearLayoutDis)
 
         // Views - include
         mobileResourceVisibility = findViewById(R.id.resourcesVisibility)
@@ -131,14 +124,7 @@ class MobileActivity : AppCompatActivity() {
                 }
 
                 // show resources
-                mobileFloatResourceBtn!!.setOnClickListener {
-                    mobileResourceVisibility!!.visibility = View.VISIBLE
-                    mobileAssignmentVisibility!!.visibility = View.GONE
-                    mobileObjectiveVisibility!!.visibility = View.GONE
-                    mobileFloatBtnView!!.visibility = View.GONE
-                }
-
-                mobileFloatTxtRes!!.setOnClickListener {
+                mobileLinearLayoutRes!!.setOnClickListener {
                     mobileResourceVisibility!!.visibility = View.VISIBLE
                     mobileAssignmentVisibility!!.visibility = View.GONE
                     mobileObjectiveVisibility!!.visibility = View.GONE
@@ -146,14 +132,7 @@ class MobileActivity : AppCompatActivity() {
                 }
 
                 // show assignments
-                mobileFloatAssignmentBtn!!.setOnClickListener {
-                    mobileAssignmentVisibility!!.visibility = View.VISIBLE
-                    mobileObjectiveVisibility!!.visibility = View.GONE
-                    mobileResourceVisibility!!.visibility = View.GONE
-                    mobileFloatBtnView!!.visibility = View.GONE
-                }
-
-                mobileFloatTxtAss!!.setOnClickListener {
+                mobileLinearLayoutAss!!.setOnClickListener {
                     mobileAssignmentVisibility!!.visibility = View.VISIBLE
                     mobileObjectiveVisibility!!.visibility = View.GONE
                     mobileResourceVisibility!!.visibility = View.GONE
@@ -161,14 +140,7 @@ class MobileActivity : AppCompatActivity() {
                 }
 
                 // show course objective
-                mobileFloatObjectiveBtn!!.setOnClickListener {
-                    mobileObjectiveVisibility!!.visibility = View.VISIBLE
-                    mobileAssignmentVisibility!!.visibility = View.GONE
-                    mobileResourceVisibility!!.visibility = View.GONE
-                    mobileFloatBtnView!!.visibility = View.GONE
-                }
-
-                mobileFloatTxtObj!!.setOnClickListener {
+                mobileLinearLayoutObj!!.setOnClickListener {
                     mobileObjectiveVisibility!!.visibility = View.VISIBLE
                     mobileAssignmentVisibility!!.visibility = View.GONE
                     mobileResourceVisibility!!.visibility = View.GONE
@@ -176,8 +148,7 @@ class MobileActivity : AppCompatActivity() {
                 }
 
                 // Intent to Discussion screen
-//                mobileFloatDiscussionBtn!!.setOnClickListener { }
-//                mobileFloatTxtDis!!.setOnClickListener {  }
+//                mobileLinearLayoutDis!!.setOnClickListener {  }
             }
 
             else {

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.ViewModelProvider
@@ -25,15 +26,11 @@ class WebActivity : AppCompatActivity() {
     private var webFloatBtnView : View? = null
     private var webBaseLayout : ConstraintLayout? = null
 
-    // Float btn elements
-    private var webFloatTxtRes : TextView? = null
-    private var webFloatTxtObj : TextView? = null
-    private var webFloatTxtDis : TextView? = null
-    private var webFloatTxtAss : TextView? = null
-    private var webFloatResourceBtn : FloatingActionButton? = null
-    private var webFloatObjectiveBtn : FloatingActionButton? = null
-    private var webFloatAssignmentBtn : FloatingActionButton? = null
-    private var webFloatDiscussionBtn : FloatingActionButton? = null
+    // Float btn Linear Layout elements
+    private var webLinearLayoutObj : LinearLayout? = null
+    private var webLinearLayoutRes : LinearLayout? = null
+    private var webLinearLayoutAss : LinearLayout? = null
+    private var webLinearLayoutDis : LinearLayout? = null
 
     // layouts View 'Gone'
     private var webResourceVisibility: View? = null
@@ -58,14 +55,10 @@ class WebActivity : AppCompatActivity() {
         webBaseLayout = findViewById(R.id.rootLayout)
 
         // Float btn elements
-        webFloatTxtObj = findViewById<View>(R.id.textViewObj) as TextView
-        webFloatTxtRes = findViewById<View>(R.id.textViewResources) as TextView
-        webFloatTxtDis = findViewById<View>(R.id.textViewDiscussion) as TextView
-        webFloatTxtAss = findViewById<View>(R.id.textViewAssignment) as TextView
-        webFloatResourceBtn = findViewById<View>(R.id.resources) as FloatingActionButton
-        webFloatObjectiveBtn = findViewById<View>(R.id.objective) as FloatingActionButton
-        webFloatAssignmentBtn = findViewById<View>(R.id.assignment) as FloatingActionButton
-        webFloatDiscussionBtn = findViewById<View>(R.id.discussion) as FloatingActionButton
+        webLinearLayoutObj = findViewById(R.id.linearLayoutObj)
+        webLinearLayoutRes = findViewById(R.id.linearLayoutRes)
+        webLinearLayoutAss = findViewById(R.id.linearLayoutAss)
+        webLinearLayoutDis = findViewById(R.id.linearLayoutDis)
 
         // Views - include
         webResourceVisibility = findViewById(R.id.resourcesVisibility)
@@ -126,14 +119,7 @@ class WebActivity : AppCompatActivity() {
                 }
 
                 // show resources
-                webFloatResourceBtn!!.setOnClickListener {
-                    webResourceVisibility!!.visibility = View.VISIBLE
-                    webAssignmentVisibility!!.visibility = View.GONE
-                    webObjectiveVisibility!!.visibility = View.GONE
-                    webFloatBtnView!!.visibility = View.GONE
-                }
-
-                webFloatTxtRes!!.setOnClickListener {
+                webLinearLayoutRes!!.setOnClickListener {
                     webResourceVisibility!!.visibility = View.VISIBLE
                     webAssignmentVisibility!!.visibility = View.GONE
                     webObjectiveVisibility!!.visibility = View.GONE
@@ -141,29 +127,16 @@ class WebActivity : AppCompatActivity() {
                 }
 
                 // show assignments
-                webFloatAssignmentBtn!!.setOnClickListener {
+                webLinearLayoutAss!!.setOnClickListener {
                     webAssignmentVisibility!!.visibility = View.VISIBLE
                     webObjectiveVisibility!!.visibility = View.GONE
                     webResourceVisibility!!.visibility = View.GONE
                     webFloatBtnView!!.visibility = View.GONE
                 }
 
-                webFloatTxtAss!!.setOnClickListener {
-                    webAssignmentVisibility!!.visibility = View.VISIBLE
-                    webObjectiveVisibility!!.visibility = View.GONE
-                    webResourceVisibility!!.visibility = View.GONE
-                    webFloatBtnView!!.visibility = View.GONE
-                }
 
                 // show course objective
-                webFloatObjectiveBtn!!.setOnClickListener {
-                    webObjectiveVisibility!!.visibility = View.VISIBLE
-                    webAssignmentVisibility!!.visibility = View.GONE
-                    webResourceVisibility!!.visibility = View.GONE
-                    webFloatBtnView!!.visibility = View.GONE
-                }
-
-                webFloatTxtObj!!.setOnClickListener {
+                webLinearLayoutObj!!.setOnClickListener {
                     webObjectiveVisibility!!.visibility = View.VISIBLE
                     webAssignmentVisibility!!.visibility = View.GONE
                     webResourceVisibility!!.visibility = View.GONE
@@ -171,8 +144,7 @@ class WebActivity : AppCompatActivity() {
                 }
 
                 // Intent to Discussion screen
-//                webFloatDiscussionBtn!!.setOnClickListener { }
-//                webFloatTxtDis!!.setOnClickListener { }
+//                webLinearLayoutDis!!.setOnClickListener {  }
             }
 
             else {

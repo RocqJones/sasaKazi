@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.ViewModelProvider
@@ -25,20 +26,16 @@ class DataScienceActivity : AppCompatActivity() {
     private var dataSciFloatBtnView : View? = null
     private var dataSciBaseLayout : ConstraintLayout? = null
 
-    // Float btn elements
-    private var dataSciFloatTxtRes : TextView? = null
-    private var dataSciFloatTxtObj : TextView? = null
-    private var dataSciFloatTxtDis : TextView? = null
-    private var dataSciFloatTxtAss : TextView? = null
-    private var dataSciFloatResourceBtn : FloatingActionButton? = null
-    private var dataSciFloatObjectiveBtn : FloatingActionButton? = null
-    private var dataSciFloatAssignmentBtn : FloatingActionButton? = null
-    private var dataSciFloatDiscussionBtn : FloatingActionButton? = null
+    // Float btn Linear Layout elements
+    private var dataSciLinearLayoutObj : LinearLayout? = null
+    private var dataSciLinearLayoutRes : LinearLayout? = null
+    private var dataSciLinearLayoutAss : LinearLayout? = null
+    private var dataSciLinearLayoutDis : LinearLayout? = null
 
     // layouts View 'Gone'
-    private var digitalResourceVisibility: View? = null
-    private var digitalObjectiveVisibility: View? = null
-    private var digitalAssignmentVisibility: View? = null
+    private var dataSciResourceVisibility: View? = null
+    private var dataSciObjectiveVisibility: View? = null
+    private var dataSciAssignmentVisibility: View? = null
 
     private lateinit var fullUrl : String
     private lateinit var viewModeldataSci : ViewModelDataScience
@@ -58,19 +55,15 @@ class DataScienceActivity : AppCompatActivity() {
         dataSciBaseLayout = findViewById(R.id.rootLayout)
 
         // Float btn elements
-        dataSciFloatTxtObj = findViewById<View>(R.id.textViewObj) as TextView
-        dataSciFloatTxtRes = findViewById<View>(R.id.textViewResources) as TextView
-        dataSciFloatTxtDis = findViewById<View>(R.id.textViewDiscussion) as TextView
-        dataSciFloatTxtAss = findViewById<View>(R.id.textViewAssignment) as TextView
-        dataSciFloatResourceBtn = findViewById<View>(R.id.resources) as FloatingActionButton
-        dataSciFloatObjectiveBtn = findViewById<View>(R.id.objective) as FloatingActionButton
-        dataSciFloatAssignmentBtn = findViewById<View>(R.id.assignment) as FloatingActionButton
-        dataSciFloatDiscussionBtn = findViewById<View>(R.id.discussion) as FloatingActionButton
+        dataSciLinearLayoutObj = findViewById(R.id.linearLayoutObj)
+        dataSciLinearLayoutRes = findViewById(R.id.linearLayoutRes)
+        dataSciLinearLayoutAss = findViewById(R.id.linearLayoutAss)
+        dataSciLinearLayoutDis = findViewById(R.id.linearLayoutDis)
 
         // Views - include
-        digitalResourceVisibility = findViewById(R.id.resourcesVisibility)
-        digitalObjectiveVisibility = findViewById(R.id.objVisibility)
-        digitalAssignmentVisibility = findViewById(R.id.assignmentVisibility)
+        dataSciResourceVisibility = findViewById(R.id.resourcesVisibility)
+        dataSciObjectiveVisibility = findViewById(R.id.objVisibility)
+        dataSciAssignmentVisibility = findViewById(R.id.assignmentVisibility)
 
         // set mutable LiveData
         setDigitalMrktLiveDataHere()
@@ -126,53 +119,31 @@ class DataScienceActivity : AppCompatActivity() {
                 }
 
                 // show resources
-                dataSciFloatResourceBtn!!.setOnClickListener {
-                    digitalResourceVisibility!!.visibility = View.VISIBLE
-                    digitalAssignmentVisibility!!.visibility = View.GONE
-                    digitalObjectiveVisibility!!.visibility = View.GONE
-                    dataSciFloatBtnView!!.visibility = View.GONE
-                }
-
-                dataSciFloatTxtRes!!.setOnClickListener {
-                    digitalResourceVisibility!!.visibility = View.VISIBLE
-                    digitalAssignmentVisibility!!.visibility = View.GONE
-                    digitalObjectiveVisibility!!.visibility = View.GONE
+                dataSciLinearLayoutRes!!.setOnClickListener {
+                    dataSciResourceVisibility!!.visibility = View.VISIBLE
+                    dataSciAssignmentVisibility!!.visibility = View.GONE
+                    dataSciObjectiveVisibility!!.visibility = View.GONE
                     dataSciFloatBtnView!!.visibility = View.GONE
                 }
 
                 // show assignments
-                dataSciFloatAssignmentBtn!!.setOnClickListener {
-                    digitalAssignmentVisibility!!.visibility = View.VISIBLE
-                    digitalObjectiveVisibility!!.visibility = View.GONE
-                    digitalResourceVisibility!!.visibility = View.GONE
-                    dataSciFloatBtnView!!.visibility = View.GONE
-                }
-
-                dataSciFloatTxtAss!!.setOnClickListener {
-                    digitalAssignmentVisibility!!.visibility = View.VISIBLE
-                    digitalObjectiveVisibility!!.visibility = View.GONE
-                    digitalResourceVisibility!!.visibility = View.GONE
+                dataSciLinearLayoutAss!!.setOnClickListener {
+                    dataSciAssignmentVisibility!!.visibility = View.VISIBLE
+                    dataSciObjectiveVisibility!!.visibility = View.GONE
+                    dataSciResourceVisibility!!.visibility = View.GONE
                     dataSciFloatBtnView!!.visibility = View.GONE
                 }
 
                 // show course objective
-                dataSciFloatObjectiveBtn!!.setOnClickListener {
-                    digitalObjectiveVisibility!!.visibility = View.VISIBLE
-                    digitalAssignmentVisibility!!.visibility = View.GONE
-                    digitalResourceVisibility!!.visibility = View.GONE
-                    dataSciFloatBtnView!!.visibility = View.GONE
-                }
-
-                dataSciFloatTxtObj!!.setOnClickListener {
-                    digitalObjectiveVisibility!!.visibility = View.VISIBLE
-                    digitalAssignmentVisibility!!.visibility = View.GONE
-                    digitalResourceVisibility!!.visibility = View.GONE
+                dataSciLinearLayoutObj!!.setOnClickListener {
+                    dataSciObjectiveVisibility!!.visibility = View.VISIBLE
+                    dataSciAssignmentVisibility!!.visibility = View.GONE
+                    dataSciResourceVisibility!!.visibility = View.GONE
                     dataSciFloatBtnView!!.visibility = View.GONE
                 }
 
                 // Intent to Discussion screen
-//                dataSciFloatDiscussionBtn!!.setOnClickListener { }
-//                dataSciFloatTxtDis!!.setOnClickListener {  }
+                dataSciLinearLayoutDis!!.setOnClickListener {  }
             }
 
             else {

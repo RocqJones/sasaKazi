@@ -3,6 +3,7 @@ package com.intoverflown.sasakazi.ui.course_objective
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -25,15 +26,11 @@ class DigitalMarketingActivity : AppCompatActivity() {
     private var digitalFloatBtnView : View? = null
     private var digitalBaseLayout : ConstraintLayout? = null
 
-    // Float btn elements
-    private var digitalFloatTxtRes : TextView? = null
-    private var digitalFloatTxtObj : TextView? = null
-    private var digitalFloatTxtDis : TextView? = null
-    private var digitalFloatTxtAss : TextView? = null
-    private var digitalFloatResourceBtn : FloatingActionButton? = null
-    private var digitalFloatObjectiveBtn : FloatingActionButton? = null
-    private var digitalFloatAssignmentBtn : FloatingActionButton? = null
-    private var digitalFloatDiscussionBtn : FloatingActionButton? = null
+    // Float btn Linear Layout elements
+    private var digitalLinearLayoutObj : LinearLayout? = null
+    private var digitalLinearLayoutRes : LinearLayout? = null
+    private var digitalLinearLayoutAss : LinearLayout? = null
+    private var digitalLinearLayoutDis : LinearLayout? = null
 
     // layouts View 'Gone'
     private var digitalResourceVisibility: View? = null
@@ -58,14 +55,10 @@ class DigitalMarketingActivity : AppCompatActivity() {
         digitalBaseLayout = findViewById(R.id.rootLayout)
 
         // Float btn elements
-        digitalFloatTxtObj = findViewById<View>(R.id.textViewObj) as TextView
-        digitalFloatTxtRes = findViewById<View>(R.id.textViewResources) as TextView
-        digitalFloatTxtDis = findViewById<View>(R.id.textViewDiscussion) as TextView
-        digitalFloatTxtAss = findViewById<View>(R.id.textViewAssignment) as TextView
-        digitalFloatResourceBtn = findViewById<View>(R.id.resources) as FloatingActionButton
-        digitalFloatObjectiveBtn = findViewById<View>(R.id.objective) as FloatingActionButton
-        digitalFloatAssignmentBtn = findViewById<View>(R.id.assignment) as FloatingActionButton
-        digitalFloatDiscussionBtn = findViewById<View>(R.id.discussion) as FloatingActionButton
+        digitalLinearLayoutObj = findViewById(R.id.linearLayoutObj)
+        digitalLinearLayoutRes = findViewById(R.id.linearLayoutRes)
+        digitalLinearLayoutAss = findViewById(R.id.linearLayoutAss)
+        digitalLinearLayoutDis = findViewById(R.id.linearLayoutDis)
 
         // Views - include
         digitalResourceVisibility = findViewById(R.id.resourcesVisibility)
@@ -126,14 +119,7 @@ class DigitalMarketingActivity : AppCompatActivity() {
                 }
 
                 // show resources
-                digitalFloatResourceBtn!!.setOnClickListener {
-                    digitalResourceVisibility!!.visibility = View.VISIBLE
-                    digitalAssignmentVisibility!!.visibility = View.GONE
-                    digitalObjectiveVisibility!!.visibility = View.GONE
-                    digitalFloatBtnView!!.visibility = View.GONE
-                }
-
-                digitalFloatTxtRes!!.setOnClickListener {
+                digitalLinearLayoutRes!!.setOnClickListener {
                     digitalResourceVisibility!!.visibility = View.VISIBLE
                     digitalAssignmentVisibility!!.visibility = View.GONE
                     digitalObjectiveVisibility!!.visibility = View.GONE
@@ -141,14 +127,7 @@ class DigitalMarketingActivity : AppCompatActivity() {
                 }
 
                 // show assignments
-                digitalFloatAssignmentBtn!!.setOnClickListener {
-                    digitalAssignmentVisibility!!.visibility = View.VISIBLE
-                    digitalObjectiveVisibility!!.visibility = View.GONE
-                    digitalResourceVisibility!!.visibility = View.GONE
-                    digitalFloatBtnView!!.visibility = View.GONE
-                }
-
-                digitalFloatTxtAss!!.setOnClickListener {
+                digitalLinearLayoutAss!!.setOnClickListener {
                     digitalAssignmentVisibility!!.visibility = View.VISIBLE
                     digitalObjectiveVisibility!!.visibility = View.GONE
                     digitalResourceVisibility!!.visibility = View.GONE
@@ -156,14 +135,7 @@ class DigitalMarketingActivity : AppCompatActivity() {
                 }
 
                 // show course objective
-                digitalFloatObjectiveBtn!!.setOnClickListener {
-                    digitalObjectiveVisibility!!.visibility = View.VISIBLE
-                    digitalAssignmentVisibility!!.visibility = View.GONE
-                    digitalResourceVisibility!!.visibility = View.GONE
-                    digitalFloatBtnView!!.visibility = View.GONE
-                }
-
-                digitalFloatTxtObj!!.setOnClickListener {
+                digitalLinearLayoutObj!!.setOnClickListener {
                     digitalObjectiveVisibility!!.visibility = View.VISIBLE
                     digitalAssignmentVisibility!!.visibility = View.GONE
                     digitalResourceVisibility!!.visibility = View.GONE
@@ -171,8 +143,7 @@ class DigitalMarketingActivity : AppCompatActivity() {
                 }
 
                 // Intent to Discussion screen
-//                digitalFloatDiscussionBtn!!.setOnClickListener { }
-//                digitalFloatTxtDis!!.setOnClickListener {  }
+//                digitalLinearLayoutDis!!.setOnClickListener {  }
             }
 
             else {
