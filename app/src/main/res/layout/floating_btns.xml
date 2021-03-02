@@ -7,7 +7,7 @@
     android:background="@color/welcome_txt_color">
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/textViewObj"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -37,7 +37,7 @@
         app:srcCompat="@drawable/baseline_description_black_24dp" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/textViewResources"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -67,7 +67,7 @@
         app:srcCompat="@drawable/baseline_menu_book_black_24dp" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/textViewDiscussion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -80,7 +80,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/discussion"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewResources" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/discussion"
@@ -98,7 +98,7 @@
         app:srcCompat="@drawable/baseline_chat_black_24dp" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/textViewAssignment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -111,7 +111,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/assignment"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewDiscussion" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/assignment"
