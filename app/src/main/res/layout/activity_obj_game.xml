@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <include layout="@layout/content_course_objective" />
+            <include layout="@layout/base_obj_resourses_assignments" />
 
         </LinearLayout>
 
