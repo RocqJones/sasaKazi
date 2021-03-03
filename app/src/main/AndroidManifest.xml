@@ -15,6 +15,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SasaKazi">
+        <activity android:name=".ui.discussions.ChatMobileActivity"></activity>
         <activity
             android:name=".ui.course_objective.DataScienceActivity"
             android:label="@string/data_science"
