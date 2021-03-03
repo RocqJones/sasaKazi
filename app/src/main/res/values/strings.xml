@@ -64,4 +64,7 @@
     <string name="ex_1">Ex 1</string>
     <string name="tasks">Tasks</string>
     <string name="task_1">Task 1</string>
+    <string name="discussion_description">We encourage peer learning, so feel free to participate in the class forum. Ask or answer questions related to the course here.</string>
+    <string name="enter_message_here">Enter message here</string>
+    <string name="send_message_btn">send message btn</string>
 </resources>
