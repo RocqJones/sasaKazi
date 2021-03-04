@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:layout_gravity="start"
+        android:layout_marginTop="2dp"
+        android:background="@drawable/bg_receiver">
+
+        <TextView
+            android:id="@+id/textViewReceiver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/welcome_txt_color"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            android:hint="@string/receiver_text" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:layout_gravity="end"
+        android:layout_marginTop="2dp"
+        android:background="@drawable/bg_sender">
+
+        <TextView
+            android:id="@+id/textViewSender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/welcome_txt_color"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            android:hint="@string/sender_text" />
+
+    </RelativeLayout>
+
+</LinearLayout>
