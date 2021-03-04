@@ -67,4 +67,6 @@
     <string name="discussion_description">We encourage peer learning, so feel free to participate in the class forum. Ask or answer questions related to the course here.</string>
     <string name="enter_message_here">Enter message here</string>
     <string name="send_message_btn">send message btn</string>
+    <string name="receiver_text">Receiver Text</string>
+    <string name="sender_text">Sender Text</string>
 </resources>
