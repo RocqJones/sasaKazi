@@ -18,6 +18,7 @@
         <activity
             android:name=".ui.discussions.ChatMobileActivity"
             android:label="@string/mobile_app_dev"
+            android:parentActivityName=".ui.course_objective.MobileActivity"
             android:theme="@style/Theme.SasaKazi" />
         <activity
             android:name=".ui.course_objective.DataScienceActivity"
