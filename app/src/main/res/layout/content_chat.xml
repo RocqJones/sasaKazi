@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/light_background">
@@ -14,7 +13,7 @@
         android:text="@string/discussion"
         android:fontFamily="sans-serif"
         android:textColor="@color/welcome_txt_color"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -24,12 +23,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="8dp"
         android:fontFamily="sans-serif"
         android:text="@string/discussion_description"
         android:textColor="@color/welcome_txt_color"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:textStyle="normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,9 +38,8 @@
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="4dp"
-        android:layout_marginEnd="8dp"
+        android:padding="2dp"
         android:background="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
@@ -71,6 +69,7 @@
             android:ems="10"
             android:gravity="start|top"
             android:hint="@string/enter_message_here"
+            android:fontFamily="sans-serif"
             android:inputType="textMultiLine"
             android:textColor="@color/welcome_txt_color"
             android:textStyle="normal" />
@@ -84,4 +83,5 @@
             android:contentDescription="@string/send_message_btn"
             app:srcCompat="@drawable/baseline_send_black_24dp" />
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
