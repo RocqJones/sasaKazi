@@ -1,5 +1,6 @@
 package com.intoverflown.sasakazi.ui.course_objective
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -11,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.intoverflown.sasakazi.R
 import com.intoverflown.sasakazi.ui.course_objective.models.ViewModelMobile
+import com.intoverflown.sasakazi.ui.discussions.ChatMobileActivity
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
@@ -148,7 +150,11 @@ class MobileActivity : AppCompatActivity() {
                 }
 
                 // Intent to Discussion screen
-//                mobileLinearLayoutDis!!.setOnClickListener {  }
+                mobileLinearLayoutDis!!.setOnClickListener {
+                    val intent = Intent(this@MobileActivity, ChatMobileActivity::class.java)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                    startActivity(intent)
+                }
             }
 
             else {
