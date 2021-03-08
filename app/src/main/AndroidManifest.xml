@@ -16,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SasaKazi">
         <activity
-            android:name=".ui.discussions.ChatWeb"
+            android:name=".ui.discussions.web.ChatWeb"
             android:label="@string/web_development"
             android:parentActivityName=".ui.course_objective.WebActivity"
             android:theme="@style/Theme.SasaKazi"/>

@@ -1,4 +1,4 @@
-package com.intoverflown.sasakazi.ui.discussions
+package com.intoverflown.sasakazi.ui.discussions.web
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
