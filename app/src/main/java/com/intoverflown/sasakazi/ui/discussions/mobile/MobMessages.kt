@@ -1,6 +1,6 @@
 package com.intoverflown.sasakazi.ui.discussions.mobile
 
-class Messages {
+class MobMessages {
     private var text: String? = null
     private var name: String? = null
 
