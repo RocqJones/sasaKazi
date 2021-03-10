@@ -23,6 +23,15 @@
             android:textStyle="normal"
             android:hint="@string/receiver_text" />
 
+        <TextView
+            android:id="@+id/textReceiverName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewReceiver"
+            android:hint="@string/sender_name"
+            android:textColor="@color/solid_background"
+            android:textSize="12sp" />
+
     </RelativeLayout>
 
     <RelativeLayout
@@ -41,6 +50,15 @@
             android:textSize="16sp"
             android:textStyle="normal"
             android:hint="@string/sender_text" />
+
+        <TextView
+            android:id="@+id/textSenderName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewSender"
+            android:hint="@string/sender_name"
+            android:textColor="@color/solid_background"
+            android:textSize="12sp" />
 
     </RelativeLayout>
 
