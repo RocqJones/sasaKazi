@@ -69,4 +69,5 @@
     <string name="send_message_btn">send message btn</string>
     <string name="receiver_text">Receiver Text</string>
     <string name="sender_text">Sender Text</string>
+    <string name="sender_name">Sender Name</string>
 </resources>
