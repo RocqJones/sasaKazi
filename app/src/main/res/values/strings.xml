@@ -71,4 +71,5 @@
     <string name="sender_text">Sender Text</string>
     <string name="sender_name">Sender Name</string>
     <string name="upload_img">upload img</string>
+    <string name="message_img">message img</string>
 </resources>
