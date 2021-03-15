@@ -16,12 +16,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SasaKazi">
         <activity
-            android:name=".ui.discussions.web.ChatWeb"
+            android:name=".ui.discussions.ChatWeb"
             android:label="@string/web_development"
             android:parentActivityName=".ui.course_objective.WebActivity"
             android:theme="@style/Theme.SasaKazi"/>
         <activity
-            android:name=".ui.discussions.mobile.ChatMobile"
+            android:name=".ui.discussions.ChatMobile"
             android:label="@string/mobile_app_dev"
             android:parentActivityName=".ui.course_objective.MobileActivity"
             android:theme="@style/Theme.SasaKazi" />

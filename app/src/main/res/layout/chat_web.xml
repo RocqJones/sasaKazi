@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/light_background"
-    tools:context=".ui.discussions.web.ChatWeb">
+    tools:context=".ui.discussions.ChatWeb">
 
     <TextView
         android:id="@+id/discussionHeading"

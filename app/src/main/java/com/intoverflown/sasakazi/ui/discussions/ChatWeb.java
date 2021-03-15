@@ -1,4 +1,4 @@
-package com.intoverflown.sasakazi.ui.discussions.web;
+package com.intoverflown.sasakazi.ui.discussions;
 
 import android.content.Intent;
 import android.net.Uri;
