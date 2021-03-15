@@ -10,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -23,7 +22,6 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -37,15 +35,13 @@ import com.intoverflown.sasakazi.databinding.ChatMobileBinding;
 
 import org.jetbrains.annotations.NotNull;
 
-import static android.icu.lang.UCharacter.GraphemeClusterBreak.V;
-
 public class ChatMobile extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
 
     public static final String MESSAGES_CHILD = "messages-mobile";
     public static final String ANONYMOUS = "Anonymous";
-    TextView messengerTxtView;
+    public static String sName;
 
     private static final int REQUEST_IMAGE = 2;
     private static final String LOADING_IMAGE_URL = "https://www.google.com/images/spin-32.gif";
@@ -59,15 +55,12 @@ public class ChatMobile extends AppCompatActivity {
     private FirebaseDatabase mDatabase;
     private DatabaseReference mDatabaseReference;
     private FirebaseRecyclerAdapter<Messages, MessageViewHolder> mFirebaseAdapter;
-    private ValueEventListener ChatName;
-    public static String sName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // This codelab uses View Binding
-        // See: https://developer.android.com/topic/libraries/view-binding
+        // use View Binding
         mBinding = ChatMobileBinding.inflate(getLayoutInflater());
         setContentView(mBinding.getRoot());
 
@@ -82,19 +75,6 @@ public class ChatMobile extends AppCompatActivity {
         mDatabase = FirebaseDatabase.getInstance();
         DatabaseReference messagesRef = mDatabase.getReference().child(MESSAGES_CHILD);
         mDatabaseReference = mDatabase.getReference().child("Users");
-//        mFirebaseAuth.getCurrentUser().getDisplayName();
-//        mDatabase.getReference().child("Users").child("fullname").addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                sName = (String) snapshot.getValue();
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
-//        ChatName = getIntent().getExtras().get("fullname").toString();
 
         // The FirebaseRecyclerAdapter class comes from the FirebaseUI library
         // See: https://github.com/firebase/FirebaseUI-Android
@@ -104,14 +84,15 @@ public class ChatMobile extends AppCompatActivity {
                         .build();
 
         mFirebaseAdapter = new FirebaseRecyclerAdapter<Messages, MessageViewHolder>(options) {
+            @NotNull
             @Override
-            public MessageViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+            public MessageViewHolder onCreateViewHolder(@NotNull ViewGroup viewGroup, int i) {
                 LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
                 return new MessageViewHolder(inflater.inflate(R.layout.item_message, viewGroup, false));
             }
 
             @Override
-            protected void onBindViewHolder(MessageViewHolder vh, int position, Messages message) {
+            protected void onBindViewHolder(@NotNull MessageViewHolder vh, int position, @NotNull Messages message) {
                 mBinding.progressBar.setVisibility(ProgressBar.INVISIBLE);
                 vh.bindMessage(message);
             }
@@ -199,7 +180,7 @@ public class ChatMobile extends AppCompatActivity {
                         .setValue(tempMessage, new DatabaseReference.CompletionListener() {
                             @Override
                             public void onComplete(DatabaseError databaseError,
-                                                   DatabaseReference databaseReference) {
+                                                   @NotNull DatabaseReference databaseReference) {
                                 if (databaseError != null) {
                                     Log.w(TAG, "Unable to write message to database.",
                                             databaseError.toException());
@@ -253,13 +234,6 @@ public class ChatMobile extends AppCompatActivity {
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in.
-        // TODO: Add code to check if user is signed in.
-    }
-
-    @Override
     public void onPause() {
         mFirebaseAdapter.stopListening();
         super.onPause();
@@ -288,55 +262,32 @@ public class ChatMobile extends AppCompatActivity {
         return null;
     }
 
-    private String getUserName() {
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        // store name of the user in a String var
         String mUserId = mFirebaseAuth.getCurrentUser().getUid();
-//        final DatabaseReference mUserRef = mDatabaseReference.child(mUser.getUid());
-//
-//        mUserRef.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                messengerTxtView = (TextView) snapshot.child("fullname").getValue();
-////                sName = (String) snapshot.child("fullname").getValue();
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
+        mDatabaseReference.child(mUserId).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                sName = snapshot.child("fullname").getValue().toString();
+            }
 
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    private String getUserName() {
+        // if current user exists, set the name of the sender
+        String mUserId = mFirebaseAuth.getCurrentUser().getUid();
         if (mUserId != null) {
-//            return mUserId;
-//            String nm = "";
-//            mDatabase.getReference().child("Users").child(mUserId).child("fullname").setValue(nm);
-            return mDatabaseReference.child(mUserId).child("fullname").getKey();
-
-//            return String.valueOf(mDatabaseReference.child(mUserId).child("fullname").addValueEventListener(new ValueEventListener() {
-//                @Override
-//                public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                    snapshot.getValue();
-//                }
-//
-//                @Override
-//                public void onCancelled(@NonNull DatabaseError error) {
-//
-//                }
-//            }));
-
-//            return String.valueOf(mDatabase.getReference().child("Users").child(mUserId).child("fullname").addValueEventListener(new ValueEventListener() {
-//                @Override
-//                public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                    snapshot.getValue(String.class);
-//                }
-//
-//                @Override
-//                public void onCancelled(@NonNull DatabaseError error) {
-//
-//                }
-//            }));
+            return sName;
         }
 
         return ANONYMOUS;
-//        return sName;
     }
 }
