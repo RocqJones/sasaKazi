@@ -16,6 +16,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SasaKazi">
         <activity
+            android:name=".ui.discussions.ChatDigitalMrkt"
+            android:label="@string/digital_marketing"
+            android:parentActivityName=".ui.course_objective.DigitalMarketingActivity"
+            android:theme="@style/Theme.SasaKazi" />
+        <activity
             android:name=".ui.discussions.ChatGame"
             android:label="@string/game_development"
             android:parentActivityName=".ui.course_objective.GameActivity"

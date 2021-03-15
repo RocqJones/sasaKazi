@@ -1,5 +1,6 @@
 package com.intoverflown.sasakazi.ui.course_objective
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -11,6 +12,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.intoverflown.sasakazi.R
 import com.intoverflown.sasakazi.ui.course_objective.models.ViewModelDigitalMrkt
+import com.intoverflown.sasakazi.ui.discussions.ChatDigitalMrkt
+import com.intoverflown.sasakazi.ui.discussions.ChatGame
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
@@ -143,7 +146,11 @@ class DigitalMarketingActivity : AppCompatActivity() {
                 }
 
                 // Intent to Discussion screen
-//                digitalLinearLayoutDis!!.setOnClickListener {  }
+                digitalLinearLayoutDis!!.setOnClickListener {
+                    val intent = Intent(this@DigitalMarketingActivity, ChatDigitalMrkt::class.java)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                    startActivity(intent)
+                }
             }
 
             else {
