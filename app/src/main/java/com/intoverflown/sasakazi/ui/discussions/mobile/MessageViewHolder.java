@@ -15,7 +15,6 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.intoverflown.sasakazi.R;
-import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MessageViewHolder extends RecyclerView.ViewHolder {
 
@@ -24,14 +23,14 @@ public class MessageViewHolder extends RecyclerView.ViewHolder {
     TextView messageTextView;
     ImageView messageImageView;
     TextView messengerTextView;
-    CircleImageView messengerImageView;
+    ImageView messengerImageView;
 
     public MessageViewHolder(View v) {
         super(v);
         messageTextView = (TextView) itemView.findViewById(R.id.messageTextView);
         messageImageView = (ImageView) itemView.findViewById(R.id.messageImageView);
         messengerTextView = (TextView) itemView.findViewById(R.id.messengerTextView);
-        messengerImageView = (CircleImageView) itemView.findViewById(R.id.messengerImageView);
+        messengerImageView = (ImageView) itemView.findViewById(R.id.messengerImageView);
     }
 
     public void bindMessage(Messages messages) {
@@ -40,7 +39,9 @@ public class MessageViewHolder extends RecyclerView.ViewHolder {
             messengerTextView.setText(messages.getFullname());
             messageTextView.setVisibility(TextView.VISIBLE);
             messageImageView.setVisibility(ImageView.GONE);
-        } else if (messages.getImageUrl() != null) {
+            Glide.with(messengerImageView.getContext()).load(messages.getPhotoUrl()).circleCrop().into(messengerImageView);
+        }
+        else if (messages.getImageUrl() != null) {
             String imageUrl = messages.getImageUrl();
             if (imageUrl.startsWith("gs://")) {
                 StorageReference storageReference = FirebaseStorage.getInstance()
@@ -66,6 +67,9 @@ public class MessageViewHolder extends RecyclerView.ViewHolder {
                 Glide.with(messageImageView.getContext())
                         .load(messages.getImageUrl())
                         .into(messageImageView);
+
+                // show sender profile picture here
+                Glide.with(messengerImageView.getContext()).load(messages.getPhotoUrl()).circleCrop().into(messengerImageView);
             }
 
             messageImageView.setVisibility(ImageView.VISIBLE);

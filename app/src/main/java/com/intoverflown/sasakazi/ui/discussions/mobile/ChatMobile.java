@@ -42,6 +42,7 @@ public class ChatMobile extends AppCompatActivity {
     public static final String MESSAGES_CHILD = "messages-mobile";
     public static final String ANONYMOUS = "Anonymous";
     public static String sName;
+    public static String usrProfileUrl;
 
     private static final int REQUEST_IMAGE = 2;
     private static final String LOADING_IMAGE_URL = "https://www.google.com/images/spin-32.gif";
@@ -251,16 +252,7 @@ public class ChatMobile extends AppCompatActivity {
     }
 
 
-    // implement the getUserPhotoUrl() amd getUserName() methods
-    @Nullable
-    private String getUserPhotoUrl() {
-        FirebaseUser user = mFirebaseAuth.getCurrentUser();
-        if (user != null && user.getPhotoUrl() != null) {
-            return user.getPhotoUrl().toString();
-        }
 
-        return null;
-    }
 
     @Override
     protected void onStart() {
@@ -272,6 +264,7 @@ public class ChatMobile extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 sName = snapshot.child("fullname").getValue().toString();
+                usrProfileUrl = snapshot.child("profile-url").getValue().toString();
             }
 
             @Override
@@ -279,6 +272,17 @@ public class ChatMobile extends AppCompatActivity {
 
             }
         });
+    }
+
+    // implement the getUserPhotoUrl() amd getUserName() methods
+    @Nullable
+    private String getUserPhotoUrl() {
+        String user = mFirebaseAuth.getCurrentUser().getUid();
+        if (user != null) {
+            return usrProfileUrl;
+        }
+
+        return String.valueOf(R.drawable.baseline_account_circle_black_36dp);
     }
 
     private String getUserName() {
