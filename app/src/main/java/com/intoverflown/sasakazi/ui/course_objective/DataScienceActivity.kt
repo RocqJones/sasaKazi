@@ -1,5 +1,6 @@
 package com.intoverflown.sasakazi.ui.course_objective
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -11,6 +12,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.intoverflown.sasakazi.R
 import com.intoverflown.sasakazi.ui.course_objective.models.ViewModelDataScience
+import com.intoverflown.sasakazi.ui.discussions.ChatDataScience
+import com.intoverflown.sasakazi.ui.discussions.ChatDigitalMrkt
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
@@ -143,7 +146,11 @@ class DataScienceActivity : AppCompatActivity() {
                 }
 
                 // Intent to Discussion screen
-                dataSciLinearLayoutDis!!.setOnClickListener {  }
+                dataSciLinearLayoutDis!!.setOnClickListener {
+                    val intent = Intent(this@DataScienceActivity, ChatDataScience::class.java)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                    startActivity(intent)
+                }
             }
 
             else {
