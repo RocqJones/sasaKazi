@@ -1,4 +1,4 @@
-package com.intoverflown.sasakazi.ui.discussions.mobile;
+package com.intoverflown.sasakazi.ui.discussions.reusableutils;
 
 public class Messages {
 

@@ -32,6 +32,10 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.intoverflown.sasakazi.R;
 import com.intoverflown.sasakazi.databinding.ChatMobileBinding;
+import com.intoverflown.sasakazi.ui.discussions.reusableutils.MessageViewHolder;
+import com.intoverflown.sasakazi.ui.discussions.reusableutils.Messages;
+import com.intoverflown.sasakazi.ui.discussions.reusableutils.MyButtonObserver;
+import com.intoverflown.sasakazi.ui.discussions.reusableutils.MyScrollToBottomObserver;
 
 import org.jetbrains.annotations.NotNull;
 
