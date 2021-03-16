@@ -3,6 +3,10 @@
 ## Working prototype demo
 [![Watch the video](screenshots/demo.png)](https://youtu.be/hQGLeIyQ0rs)
 
+## Structure.
+**MVVM(Model view viewmodel architecture)** - Software architectural pattern that facilitates the separation of the development of the graphical user interface (the view) – be it via a markup language or GUI code.
+![MVVVM Img](screenshots/mvvm.png)
+
 ## Tools
 * **Firebase:** authentication | database | Real-time messaging | Storage.
 * **ViewModel:** - *Stores UI-related data that isn't destroyed on app rotations*
