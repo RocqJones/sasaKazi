@@ -1,11 +1,11 @@
 package com.intoverflown.sasakazi.network
 
-import com.intoverflown.sasakazi.data.DataModel
+import com.intoverflown.sasakazi.data.PostModel
 import retrofit2.Call
-import retrofit2.http.GET
+import retrofit2.http.*
 
 interface ApiInterface {
     // Mobile data
-    @GET("2")
-    fun fetchMobileData(): Call<List<DataModel>>
+    @GET("/api/courses/")
+    fun fetchMobileData(): Call<List<PostModel>>
 }
