@@ -19,29 +19,31 @@ class DataRepository {
     }
 
     // Fetch Mobile Data
-    fun fetchMobileData(): MutableLiveData<List<DataModel>?> {
-        val data = MutableLiveData<List<DataModel>?>()
+    fun fetchMobileData(): LiveData<List<PostModel>> {
+        val data = MutableLiveData<List<PostModel>>()
 
-        apiInterface?.fetchMobileData()?.enqueue(object : Callback<List<DataModel>> {
-
-            override fun onFailure(call: Call<List<DataModel>>, t: Throwable) {
-                data.value = null
+        apiInterface?.fetchMobileData()?.enqueue(object : Callback<List<PostModel>> {
+            override fun onFailure(call: Call<List<PostModel>>, t: Throwable) {
+                null.also { data.value = it }
+                Log.e("Data Repository", "Problem calling API")
             }
 
             override fun onResponse(
-                call: Call<List<DataModel>>,
-                response: Response<List<DataModel>>
+                call: Call<List<PostModel>>,
+                response: Response<List<PostModel>>
             ) {
 
                 val res = response.body()
-                if (response.code() == 200 &&  res!=null){
-                    data.value = res
+                if (response.code() == 200 && res != null){
+                    res.also { data.value = it }
+                    // print data
+                    Log.d("Results: ", res.toString())
                 }else{
-                    data.value = null
+                    null.also { data.value = it }
                 }
             }
         })
-        Log.d("Repository", data.toString())
+        Log.d("Repository Data", data.toString())
         return data
     }
 
