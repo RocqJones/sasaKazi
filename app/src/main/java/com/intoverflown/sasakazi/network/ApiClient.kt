@@ -6,7 +6,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-const val BASEURL = "http://test.sasakazi.com/api/courses/"
+const val BASEURL = "https://test.sasakazi.com/"
 
 class ApiClient {
     companion object{
