@@ -1,4 +1,4 @@
-package com.intoverflown.sasakazi.util
+package com.intoverflown.sasakazi.utils
 
 class Constants {
 
