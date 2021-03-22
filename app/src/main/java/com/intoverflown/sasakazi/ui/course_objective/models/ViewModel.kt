@@ -10,7 +10,7 @@ import retrofit2.Response
 
 class ViewModel(private val repository: Repository) : ViewModel() {
 
-    private val myMobileResponse: MutableLiveData<Response<PostModel>> = MutableLiveData()
+    val myMobileResponse: MutableLiveData<Response<PostModel>> = MutableLiveData()
 
     fun fetchMobileData() {
         // use coroutines
