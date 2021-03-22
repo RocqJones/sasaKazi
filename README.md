@@ -17,6 +17,7 @@
   - `Dex` stands for **Dalvik Executable**, which is what Google's virtual machine processor (Dalvik) uses to handle Android Applications. MultiDex integration in Android Studio allows Android Developers the ***ability to compile and execute a code-base with over 65,536 methods!***.<br>
   ![Multidex Process](screenshots/multidesk-build-process.png)
 * **[OkHttp interceptor](https://square.github.io/okhttp/interceptors/)** *It logs `HTTP` request and response data.*
+  ![okhttp Interceptor process](screenshots/okhttpInterceptor.png)
 
 ## Download apk
 [Click here for download!](https://github.com/RocqJones/sasaKazi/blob/master/app/build/outputs/apk/debug/app-debug.apk)
