@@ -25,10 +25,10 @@
     </fragment>
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.intoverflown.sasakazi.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_blog"
+        android:name="com.intoverflown.sasakazi.ui.blog.BlogFragment"
+        android:label="@string/title_blog"
+        tools:layout="@layout/fragment_blog" />
     <activity
         android:id="@+id/loginActivity"
         android:name="com.intoverflown.sasakazi.users.LoginActivity"
@@ -59,9 +59,54 @@
         android:name="com.intoverflown.sasakazi.settings.EditProfileActivity"
         android:label="activity_edit_profile"
         tools:layout="@layout/activity_edit_profile" />
-    <fragment
-        android:id="@+id/courseObjectiveFragment"
-        android:name="com.intoverflown.sasakazi.ui.course_objective.CourseObjectiveFragment"
-        android:label="activity_course_objective"
+    <activity
+        android:id="@+id/mobileActivity"
+        android:name="com.intoverflown.sasakazi.ui.course_objective.MobileActivity"
+        android:label="activity_obj_mobile"
         tools:layout="@layout/activity_obj_mobile" />
+    <activity
+        android:id="@+id/webActivity"
+        android:name="com.intoverflown.sasakazi.ui.course_objective.WebActivity"
+        android:label="activity_obj_web"
+        tools:layout="@layout/activity_obj_web" />
+    <activity
+        android:id="@+id/digitalMarketingActivity"
+        android:name="com.intoverflown.sasakazi.ui.course_objective.DigitalMarketingActivity"
+        android:label="activity_obj_digital_marketing"
+        tools:layout="@layout/activity_obj_digital_marketing" />
+    <activity
+        android:id="@+id/dataScienceActivity"
+        android:name="com.intoverflown.sasakazi.ui.course_objective.DataScienceActivity"
+        android:label="activity_obj_data_science"
+        tools:layout="@layout/activity_obj_data_science" />
+    <activity
+        android:id="@+id/gameActivity"
+        android:name="com.intoverflown.sasakazi.ui.course_objective.GameActivity"
+        android:label="activity_obj_game"
+        tools:layout="@layout/activity_obj_game" />
+    <activity
+        android:id="@+id/chatDataScience"
+        android:name="com.intoverflown.sasakazi.ui.discussions.ChatDataScience"
+        android:label="chat_data_science"
+        tools:layout="@layout/chat_data_science" />
+    <activity
+        android:id="@+id/chatDigitalMrkt"
+        android:name="com.intoverflown.sasakazi.ui.discussions.ChatDigitalMrkt"
+        android:label="chat_digital_mrkt"
+        tools:layout="@layout/chat_digital_mrkt" />
+    <activity
+        android:id="@+id/chatGame"
+        android:name="com.intoverflown.sasakazi.ui.discussions.ChatGame"
+        android:label="chat_game"
+        tools:layout="@layout/chat_game" />
+    <activity
+        android:id="@+id/chatMobile"
+        android:name="com.intoverflown.sasakazi.ui.discussions.ChatMobile"
+        android:label="chat_mobile"
+        tools:layout="@layout/chat_mobile" />
+    <activity
+        android:id="@+id/chatWeb"
+        android:name="com.intoverflown.sasakazi.ui.discussions.ChatWeb"
+        android:label="chat_web"
+        tools:layout="@layout/chat_web" />
 </navigation>
