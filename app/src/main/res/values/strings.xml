@@ -2,7 +2,7 @@
     <string name="app_name">sasaKazi</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_blog">Blog</string>
     <string name="logo">Logo</string>
     <string name="splash_txt">equip yourself with employable skills</string>
     <string name="title_splash">Splash</string>
@@ -55,7 +55,7 @@
     <string name="resources">Resources</string>
     <string name="discussion">Discussions</string>
     <string name="assignment">Assignment</string>
-    <string name="resource_description">Resource description...</string>
+    <string name="resource_description">Resource description…</string>
     <string name="links">Links</string>
     <string name="books">Books</string>
     <string name="transcripts">Transcripts</string>
