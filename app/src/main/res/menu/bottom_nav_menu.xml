@@ -12,8 +12,8 @@
         android:title="@string/title_dashboard" />
 
     <item
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/navigation_blog"
         android:icon="@drawable/baseline_sticky_note_2_white_24dp"
-        android:title="@string/blog" />
+        android:title="@string/title_blog" />
 
 </menu>
