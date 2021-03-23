@@ -6,8 +6,8 @@ import androidx.lifecycle.ViewModel
 
 class BlogViewModel : ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is notifications Fragment"
+    private val _webViewUrl = MutableLiveData<String>().apply {
+        value = "https://sasakazi.com/blog.html"
     }
-    val text: LiveData<String> = _text
+    val webUrl: LiveData<String> = _webViewUrl
 }
