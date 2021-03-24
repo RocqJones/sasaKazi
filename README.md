@@ -7,6 +7,12 @@
 **MVVM(Model view viewmodel architecture)** - Software architectural pattern that facilitates the separation of the development of the graphical user interface (the view) – be it via a markup language or GUI code.
 ![MVVVM Img](screenshots/mvvm.png)
 
+## Features.
+1. Real-Time Group Messaging (Discussion).
+2. Blog Section.
+3. Course Selection.
+4. Classroom.
+
 ## Tools
 * **Firebase:** authentication | database | Real-time messaging | Storage.
 * **ViewModel:** *Stores UI-related data that isn't destroyed on app rotations*
