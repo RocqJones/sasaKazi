@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">sasaKazi</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
+    <string name="title_contacts">Contacts</string>
     <string name="title_blog">Blog</string>
     <string name="logo">Logo</string>
     <string name="splash_txt">equip yourself with employable skills</string>
