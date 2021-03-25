@@ -61,28 +61,15 @@ class ContactsFragment : Fragment() {
                     getRef(position).key
                     model.fullname
                     model.phone
+                    model.profileurl
 
                     holder.name.text = model.fullname
                     holder.phone.text = model.phone
-
-//                    mUserRef!!.addValueEventListener(object : ValueEventListener {
-//                        override fun onDataChange(snapshot: DataSnapshot) {
-//                            holder.profilePic.let {
-//                                Glide.with(this@ContactsFragment).load(snapshot.child("profile-url").value as String).circleCrop().into(
-//                                    it
-//                                )
-//                            }
-//                        }
-//
-//                        override fun onCancelled(error: DatabaseError) { }
-//                    })
-
-                    // set photo
-//                    holder.profilePic.let {
-//                        Glide.with(this@ContactsFragment).load(model.profileurl).circleCrop().into(
-//                            it
-//                        )
-//                    }
+                    holder.profilePic.let {
+                        Glide.with(this@ContactsFragment).load(model.profileurl).circleCrop().into(
+                            it
+                        )
+                    }
                 }
 
                 @NonNull
