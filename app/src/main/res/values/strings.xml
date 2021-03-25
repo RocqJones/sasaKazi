@@ -73,4 +73,7 @@
     <string name="upload_img">upload img</string>
     <string name="message_img">message img</string>
     <string name="phone_call">Phone call</string>
+    <string name="youtube_stream_img">youtube stream img</string>
+    <string name="join_live_classes_here">Join Live Classes Here</string>
+    <string name="live_classroom">Live Classroom</string>
 </resources>
