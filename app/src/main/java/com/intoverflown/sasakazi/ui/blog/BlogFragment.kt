@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import android.widget.ProgressBar
 import androidx.activity.OnBackPressedCallback
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
@@ -18,6 +19,7 @@ import com.intoverflown.sasakazi.R
 class BlogFragment : Fragment() {
 
     private var webView : WebView? = null
+    private var blogProgressBar : ProgressBar? = null
     private lateinit var fullUrl : String
     private lateinit var blogViewModel: BlogViewModel
 
@@ -31,6 +33,8 @@ class BlogFragment : Fragment() {
                 ViewModelProvider(this).get(BlogViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_blog, container, false)
         webView = root.findViewById(R.id.webView)
+
+        blogViewModel = root.findViewById(R.id.blogProgressBar)
 
         setUpWebView()
 
@@ -57,6 +61,10 @@ class BlogFragment : Fragment() {
 
         blogViewModel.webUrl.observe(viewLifecycleOwner, Observer {
             fullUrl = it
+
+            if (blogProgressBar != null) {
+                blogProgressBar!!.visibility = View.GONE
+            }
 
             // load web
             webView.apply {
