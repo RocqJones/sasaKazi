@@ -1,5 +1,6 @@
 package com.intoverflown.sasakazi.ui.contacts
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,7 @@ import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.annotation.NonNull
+import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -16,9 +18,11 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.firebase.database.*
 import com.intoverflown.sasakazi.R
+import com.intoverflown.sasakazi.ui.youtubestreaming.YouTubeStreamingActivity
 
 class ContactsFragment : Fragment() {
 
+    private var toYouTubeStreamer: CardView? = null
     private var mUserRef: DatabaseReference? = null
     private var contactProgressBar: ProgressBar? = null
     private var contactRecyclerView: RecyclerView? = null
@@ -38,6 +42,14 @@ class ContactsFragment : Fragment() {
         contactRecyclerView!!.layoutManager = layoutManager
 
         contactProgressBar = root.findViewById(R.id.contactProgressBar)
+
+        toYouTubeStreamer = root.findViewById(R.id.toYouTubeStreamer)
+
+        toYouTubeStreamer!!.setOnClickListener {
+            val intent = Intent(this.context, YouTubeStreamingActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            startActivity(intent)
+        }
 
         displayUsers()
 
