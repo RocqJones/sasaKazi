@@ -109,4 +109,9 @@
         android:name="com.intoverflown.sasakazi.ui.discussions.ChatWeb"
         android:label="chat_web"
         tools:layout="@layout/chat_web" />
+    <activity
+        android:id="@+id/youTubeStreamingActivity"
+        android:name="com.intoverflown.sasakazi.ui.youtubestreaming.YouTubeStreamingActivity"
+        android:label="activity_you_tube_streaming"
+        tools:layout="@layout/activity_you_tube_streaming" />
 </navigation>
