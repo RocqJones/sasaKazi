@@ -269,7 +269,7 @@ public class ChatDigitalMrkt extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 sName = snapshot.child("fullname").getValue().toString();
-                usrProfileUrl = snapshot.child("profile-url").getValue().toString();
+                usrProfileUrl = snapshot.child("profileurl").getValue().toString();
             }
 
             @Override

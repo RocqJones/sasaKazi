@@ -126,14 +126,14 @@ class ProfileActivity : AppCompatActivity() {
                     // check if db has photo url
                     currentUsersDb.addListenerForSingleValueEvent(object : ValueEventListener {
                         override fun onDataChange(snapshot: DataSnapshot) {
-                            if (snapshot.hasChild("profile-url")) {
+                            if (snapshot.hasChild("profileurl")) {
                                 // update clause
                                 val map_profile_url = HashMap<String, Any>()
-                                map_profile_url["profile-url"] = url
+                                map_profile_url["profileurl"] = url
                                 currentUsersDb.updateChildren(map_profile_url)
                             } else {
                                 // doesn't exist
-                                currentUsersDb.child("profile-url").setValue(url)
+                                currentUsersDb.child("profileurl").setValue(url)
                             }
                         }
                         override fun onCancelled(error: DatabaseError) {  }
@@ -153,9 +153,9 @@ class ProfileActivity : AppCompatActivity() {
 
         mUserReference.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                // Picasso.get().load(snapshot.child("profile-url").value as String).into(profilePicture)
+                // Picasso.get().load(snapshot.child("profileurl").value as String).into(profilePicture)
                 profilePicture?.let {
-                    Glide.with(this@ProfileActivity).load(snapshot.child("profile-url").value as String).circleCrop().into(
+                    Glide.with(this@ProfileActivity).load(snapshot.child("profileurl").value as String).circleCrop().into(
                         it
                     )
                 }

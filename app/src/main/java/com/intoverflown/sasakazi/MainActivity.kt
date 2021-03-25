@@ -107,7 +107,7 @@ class MainActivity : AppCompatActivity() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 // Picasso.get().load(snapshot.child("profile-url").value as String).into(navProfileImage)
                 navProfileImage?.let {
-                    Glide.with(this@MainActivity).load(snapshot.child("profile-url").value as String).circleCrop().into(
+                    Glide.with(this@MainActivity).load(snapshot.child("profileurl").value as String).circleCrop().into(
                         it
                     )
                 }

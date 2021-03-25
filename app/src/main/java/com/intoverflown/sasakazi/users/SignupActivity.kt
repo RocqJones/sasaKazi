@@ -104,7 +104,7 @@ class SignupActivity : AppCompatActivity() {
                     val currentUsersDb = mDatabaseReferences!!.child(userId)
                     currentUsersDb.child("fullname").setValue(str_fullname)
                     currentUsersDb.child("phone").setValue(str_phone)
-                    currentUsersDb.child("profile-url").setValue(url)
+                    currentUsersDb.child("profileurl").setValue(url)
 
                     // then start a new activity once user is created
                     sendUserToHomePage()
