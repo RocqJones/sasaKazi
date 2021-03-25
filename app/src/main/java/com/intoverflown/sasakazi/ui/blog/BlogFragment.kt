@@ -1,7 +1,6 @@
 package com.intoverflown.sasakazi.ui.blog
 
 import android.annotation.SuppressLint
-import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -15,7 +14,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.intoverflown.sasakazi.R
-import com.intoverflown.sasakazi.ui.home.HomeFragment
 
 class BlogFragment : Fragment() {
 
@@ -25,9 +23,9 @@ class BlogFragment : Fragment() {
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         blogViewModel =
                 ViewModelProvider(this).get(BlogViewModel::class.java)
@@ -40,6 +38,9 @@ class BlogFragment : Fragment() {
             override fun handleOnBackPressed() {
                 if (webView!!.canGoBack()) {
                     webView!!.goBack()
+                } else {
+                    isEnabled = false
+                    requireActivity().onBackPressed()
                 }
             }
         }
