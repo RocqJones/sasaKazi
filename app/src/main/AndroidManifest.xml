@@ -19,7 +19,7 @@
             android:name=".ui.youtubestreaming.YouTubeStreamingActivity"
             android:label="@string/live_classroom"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/Theme.SasaKazi"/>
+            android:theme="@style/Theme.SasaKazi" />
         <activity
             android:name=".ui.discussions.ChatDataScience"
             android:label="@string/data_science"
@@ -45,6 +45,11 @@
             android:label="@string/mobile_app_dev"
             android:parentActivityName=".ui.course_objective.MobileActivity"
             android:theme="@style/Theme.SasaKazi" />
+        <activity
+            android:name=".ui.course_objective.OnlineSafetyActivity"
+            android:label="@string/online_safety"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/Theme.SasaKazi"/>
         <activity
             android:name=".ui.course_objective.DataScienceActivity"
             android:label="@string/data_science"
