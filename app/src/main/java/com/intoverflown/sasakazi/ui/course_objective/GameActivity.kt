@@ -8,12 +8,15 @@ import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.intoverflown.sasakazi.R
+import com.intoverflown.sasakazi.data.Repository
+import com.intoverflown.sasakazi.ui.course_objective.models.ViewModel
+import com.intoverflown.sasakazi.ui.course_objective.models.ViewModelFactory
 import com.intoverflown.sasakazi.ui.course_objective.models.ViewModelGame
 import com.intoverflown.sasakazi.ui.discussions.ChatGame
-import com.intoverflown.sasakazi.ui.discussions.ChatWeb
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
@@ -24,6 +27,18 @@ class GameActivity : AppCompatActivity() {
     private var gameObjDescription : TextView? = null
     private var gameInstructorName : TextView? = null
     private var gameCertConditions : TextView? = null
+
+    private var gameResourceLinks : TextView? = null
+    private var gameResourceDescription : TextView? = null
+    private var gameResourceBooks : TextView? = null
+    private var gameResourceTranscripts : TextView? = null
+
+    private var gameAssignmentDescription : TextView? = null
+    private var gameAssignmentExercises : TextView? = null
+    private var gameAssignmentTasks : TextView? = null
+
+    private lateinit var viewModel: ViewModel
+
     private var gameVidPlayerView : YouTubePlayerView? = null
     private var gameFloatActionBtn : FloatingActionButton? = null
     private var gameFloatBtnView : View? = null
@@ -68,48 +83,69 @@ class GameActivity : AppCompatActivity() {
         gameObjectiveVisibility = findViewById(R.id.objVisibility)
         gameAssignmentVisibility = findViewById(R.id.assignmentVisibility)
 
+        // Resources
+        gameResourceLinks = findViewById<View>(R.id.resourceLinks) as TextView
+        gameResourceDescription = findViewById<View>(R.id.resourceDescription) as TextView
+        gameResourceBooks = findViewById<View>(R.id.resourceBooks) as TextView
+        gameResourceTranscripts = findViewById<View>(R.id.resourceTranscripts) as TextView
+
+        // assignment
+        gameAssignmentDescription = findViewById<View>(R.id.assignmentDescription) as TextView
+        gameAssignmentExercises = findViewById<View>(R.id.assignmentExercises) as TextView
+        gameAssignmentTasks = findViewById<View>(R.id.assignmentTasks) as TextView
+
+        // initialize ViewModels
+        val repository = Repository()
+        val viewModelFactory = ViewModelFactory(repository)
+
+        viewModel = ViewModelProvider(this, viewModelFactory).get(ViewModel::class.java)
+
         // set mutable LiveData
         setGameLiveDataHere()
     }
 
     private fun setGameLiveDataHere() {
-        viewModelGame.textCourseObj.observe(this) {
-            gameObjDescription!!.text = it
-        }
+        viewModel.fetchGameData()
+        viewModel.myMobileResponse.observe(this, Observer { response ->
+            if (response.isSuccessful) {
 
-        viewModelGame.textInstructorName.observe(this) {
-            gameInstructorName!!.text = it
-        }
-        viewModelGame.textCertRequirements.observe(this) {
-            gameCertConditions!!.text = it
-        }
+                // set to UI
+                gameObjDescription!!.text = response.body()?.course_objective
+                gameInstructorName!!.text = response.body()?.course_instructor
+                gameCertConditions!!.text = response.body()?.course_certificate_eligibility
 
-        // get url and extract the link id in the subsequent function
-        viewModelGame.youtubeLink.observe(this) { it ->
-            fullUrl = it
+                // get url and extract the link id as follows
+                fullUrl = response.body()?.course_video_url!!
+                Log.i("YouTubeURL: ", fullUrl)
 
-            Log.i("YouTubeURL: ", fullUrl)
+                // extract link id from url
+                val extractedVidID : String? = fullUrl.substringAfterLast("youtu.be/")
 
-            // extract link id from url
-            val extractedVidID : String? = fullUrl.substringAfterLast("youtu.be/")
+                gameVidPlayerView!!.let { lifecycle.addObserver(it) }
 
-            gameVidPlayerView!!.let { lifecycle.addObserver(it) }
+                gameVidPlayerView!!.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
+                    override fun onReady(youTubePlayer: YouTubePlayer) {
+                        if (extractedVidID != null) {
+                            Log.i("YouTubeID: ", extractedVidID)
+                        }
 
-            gameVidPlayerView!!.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
-                override fun onReady(youTubePlayer: YouTubePlayer) {
-                    if (extractedVidID != null) {
-                        Log.i("YouTubeID: ", extractedVidID)
-                    }
+                        extractedVidID.let { it1 ->
+                            if (it1 != null) {
+                                youTubePlayer.cueVideo(it1, 0F)
 
-                    extractedVidID.let { it1 ->
-                        if (it1 != null) {
-                            youTubePlayer.cueVideo(it1, 0F)
-
+                            }
                         }
                     }
-                }
-            })
-        }
+                })
+
+                // resources ui
+                gameResourceLinks!!.text = response.body()?.course_resources
+
+                // assignment ui
+            } else {
+                Log.e("Response API Error: ", response.errorBody().toString())
+            }
+        })
 
         gameFloatActionBtn!!.setOnClickListener {
             if (gameFloatBtnView!!.visibility == View.GONE) {

@@ -29,4 +29,13 @@ class ViewModel(private val repository: Repository) : ViewModel() {
             myMobileResponse.value = response
         }
     }
+
+    // Game
+    fun fetchGameData() {
+        // use coroutines
+        viewModelScope.launch {
+            val response = repository.fetchGameData()
+            myMobileResponse.value = response
+        }
+    }
 }
