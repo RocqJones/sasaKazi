@@ -10,10 +10,11 @@ import com.google.firebase.storage.FirebaseStorage
 import com.intoverflown.sasakazi.R
 
 class MessageViewHolder(v: View?) : RecyclerView.ViewHolder(v!!) {
-    var messageTextView: TextView
-    var messageImageView: ImageView
-    var messengerTextView: TextView
-    var messengerImageView: ImageView
+    var messageTextView: TextView = itemView.findViewById<View>(R.id.messageTextView) as TextView
+    var messageImageView: ImageView = itemView.findViewById<View>(R.id.messageImageView) as ImageView
+    var messengerTextView: TextView = itemView.findViewById<View>(R.id.messengerTextView) as TextView
+    var messengerImageView: ImageView = itemView.findViewById<View>(R.id.messengerImageView) as ImageView
+
     fun bindMessage(messages: Messages) {
         if (messages.text != null) {
             messageTextView.text = messages.text
@@ -59,10 +60,4 @@ class MessageViewHolder(v: View?) : RecyclerView.ViewHolder(v!!) {
         private const val TAG = "MessageViewHolder"
     }
 
-    init {
-        messageTextView = itemView.findViewById<View>(R.id.messageTextView) as TextView
-        messageImageView = itemView.findViewById<View>(R.id.messageImageView) as ImageView
-        messengerTextView = itemView.findViewById<View>(R.id.messengerTextView) as TextView
-        messengerImageView = itemView.findViewById<View>(R.id.messengerImageView) as ImageView
-    }
 }
