@@ -15,7 +15,6 @@ import com.intoverflown.sasakazi.R
 import com.intoverflown.sasakazi.data.Repository
 import com.intoverflown.sasakazi.ui.course_objective.models.ViewModel
 import com.intoverflown.sasakazi.ui.course_objective.models.ViewModelFactory
-import com.intoverflown.sasakazi.ui.course_objective.models.ViewModelGame
 import com.intoverflown.sasakazi.ui.discussions.ChatGame
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
@@ -56,13 +55,10 @@ class GameActivity : AppCompatActivity() {
     private var gameAssignmentVisibility: View? = null
 
     private lateinit var fullUrl : String
-    private lateinit var viewModelGame : ViewModelGame
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_obj_game)
-
-        viewModelGame = ViewModelProvider(this).get(ViewModelGame::class.java)
 
         gameFloatActionBtn = findViewById<View>(R.id.floatingActionBtn) as FloatingActionButton
         gameObjDescription = findViewById<View>(R.id.objectiveDescription) as TextView
