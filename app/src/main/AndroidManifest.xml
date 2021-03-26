@@ -16,6 +16,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SasaKazi">
         <activity
+            android:name=".ui.discussions.ChatOnlineSafety"
+            android:label="@string/online_safety"
+            android:parentActivityName=".ui.course_objective.OnlineSafetyActivity"
+            android:theme="@style/Theme.SasaKazi"/>
+        <activity
             android:name=".ui.youtubestreaming.YouTubeStreamingActivity"
             android:label="@string/live_classroom"
             android:parentActivityName=".MainActivity"
@@ -49,7 +54,7 @@
             android:name=".ui.course_objective.OnlineSafetyActivity"
             android:label="@string/online_safety"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/Theme.SasaKazi"/>
+            android:theme="@style/Theme.SasaKazi" />
         <activity
             android:name=".ui.course_objective.DataScienceActivity"
             android:label="@string/data_science"
