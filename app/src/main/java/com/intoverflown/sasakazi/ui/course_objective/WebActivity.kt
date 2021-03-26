@@ -32,9 +32,9 @@ class WebActivity : AppCompatActivity() {
     private var webResourceBooks : TextView? = null
     private var webResourceTranscripts : TextView? = null
 
-    private var mobileAssignmentDescription : TextView? = null
-    private var mobileAssignmentExercises : TextView? = null
-    private var mobileAssignmentTasks : TextView? = null
+    private var webAssignmentDescription : TextView? = null
+    private var webAssignmentExercises : TextView? = null
+    private var webAssignmentTasks : TextView? = null
 
     private lateinit var viewModel: ViewModel
 
@@ -86,9 +86,9 @@ class WebActivity : AppCompatActivity() {
         webResourceTranscripts = findViewById<View>(R.id.resourceTranscripts) as TextView
 
         // assignment
-        mobileAssignmentDescription = findViewById<View>(R.id.assignmentDescription) as TextView
-        mobileAssignmentExercises = findViewById<View>(R.id.assignmentExercises) as TextView
-        mobileAssignmentTasks = findViewById<View>(R.id.assignmentTasks) as TextView
+        webAssignmentDescription = findViewById<View>(R.id.assignmentDescription) as TextView
+        webAssignmentExercises = findViewById<View>(R.id.assignmentExercises) as TextView
+        webAssignmentTasks = findViewById<View>(R.id.assignmentTasks) as TextView
 
         // initialize ViewModels
         val repository = Repository()
@@ -101,7 +101,7 @@ class WebActivity : AppCompatActivity() {
     }
 
     private fun setWebLiveDataHere() {
-        viewModel.fetchMobileData()
+        viewModel.fetchWebData()
         viewModel.myMobileResponse.observe(this, Observer { response ->
             if (response.isSuccessful) {
 
