@@ -8,9 +8,13 @@ import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.intoverflown.sasakazi.R
+import com.intoverflown.sasakazi.data.Repository
+import com.intoverflown.sasakazi.ui.course_objective.models.ViewModel
+import com.intoverflown.sasakazi.ui.course_objective.models.ViewModelFactory
 import com.intoverflown.sasakazi.ui.course_objective.models.ViewModelWeb
 import com.intoverflown.sasakazi.ui.discussions.ChatWeb
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
@@ -23,6 +27,18 @@ class WebActivity : AppCompatActivity() {
     private var webObjDescription : TextView? = null
     private var webInstructorName : TextView? = null
     private var webCertConditions : TextView? = null
+
+    private var webResourceLinks : TextView? = null
+    private var webResourceDescription : TextView? = null
+    private var webResourceBooks : TextView? = null
+    private var webResourceTranscripts : TextView? = null
+
+    private var mobileAssignmentDescription : TextView? = null
+    private var mobileAssignmentExercises : TextView? = null
+    private var mobileAssignmentTasks : TextView? = null
+
+    private lateinit var viewModel: ViewModel
+
     private var webVidPlayerView : YouTubePlayerView? = null
     private var webFloatActionBtn : FloatingActionButton? = null
     private var webFloatBtnView : View? = null
@@ -67,48 +83,69 @@ class WebActivity : AppCompatActivity() {
         webObjectiveVisibility = findViewById(R.id.objVisibility)
         webAssignmentVisibility = findViewById(R.id.assignmentVisibility)
 
+        // Resources
+        webResourceLinks = findViewById<View>(R.id.resourceLinks) as TextView
+        webResourceDescription = findViewById<View>(R.id.resourceDescription) as TextView
+        webResourceBooks = findViewById<View>(R.id.resourceBooks) as TextView
+        webResourceTranscripts = findViewById<View>(R.id.resourceTranscripts) as TextView
+
+        // assignment
+        mobileAssignmentDescription = findViewById<View>(R.id.assignmentDescription) as TextView
+        mobileAssignmentExercises = findViewById<View>(R.id.assignmentExercises) as TextView
+        mobileAssignmentTasks = findViewById<View>(R.id.assignmentTasks) as TextView
+
+        // initialize ViewModels
+        val repository = Repository()
+        val viewModelFactory = ViewModelFactory(repository)
+
+        viewModel = ViewModelProvider(this, viewModelFactory).get(ViewModel::class.java)
+
         // set mutable LiveData
         setWebLiveDataHere()
     }
 
     private fun setWebLiveDataHere() {
-        viewModelWeb.textCourseObj.observe(this) {
-            webObjDescription!!.text = it
-        }
+        viewModel.fetchMobileData()
+        viewModel.myMobileResponse.observe(this, Observer { response ->
+            if (response.isSuccessful) {
 
-        viewModelWeb.textInstructorName.observe(this) {
-            webInstructorName!!.text = it
-        }
-        viewModelWeb.textCertRequirements.observe(this) {
-            webCertConditions!!.text = it
-        }
+                // set to UI
+                webObjDescription!!.text = response.body()?.course_objective
+                webInstructorName!!.text = response.body()?.course_instructor
+                webCertConditions!!.text = response.body()?.course_certificate_eligibility
 
-        // get url and extract the link id in the subsequent function
-        viewModelWeb.youtubeLink.observe(this) { it ->
-            fullUrl = it
+                // get url and extract the link id as follows
+                fullUrl = response.body()?.course_video_url!!
+                Log.i("YouTubeURL: ", fullUrl)
 
-            Log.i("YouTubeURL: ", fullUrl)
+                // extract link id from url
+                val extractedVidID : String? = fullUrl.substringAfterLast("youtu.be/")
 
-            // extract link id from url
-            val extractedVidID : String? = fullUrl.substringAfterLast("youtu.be/")
+                webVidPlayerView!!.let { lifecycle.addObserver(it) }
 
-            webVidPlayerView!!.let { lifecycle.addObserver(it) }
+                webVidPlayerView!!.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
+                    override fun onReady(youTubePlayer: YouTubePlayer) {
+                        if (extractedVidID != null) {
+                            Log.i("YouTubeID: ", extractedVidID)
+                        }
 
-            webVidPlayerView!!.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
-                override fun onReady(youTubePlayer: YouTubePlayer) {
-                    if (extractedVidID != null) {
-                        Log.i("YouTubeID: ", extractedVidID)
-                    }
+                        extractedVidID.let { it1 ->
+                            if (it1 != null) {
+                                youTubePlayer.cueVideo(it1, 0F)
 
-                    extractedVidID.let { it1 ->
-                        if (it1 != null) {
-                            youTubePlayer.cueVideo(it1, 0F)
-
+                            }
                         }
                     }
-                }
-            })
-        }
+                })
+
+                // resources ui
+                webResourceLinks!!.text = response.body()?.course_resources
+
+                // assignment ui
+            } else {
+                Log.e("Response API Error: ", response.errorBody().toString())
+            }
+        })
 
         webFloatActionBtn!!.setOnClickListener {
             if (webFloatBtnView!!.visibility == View.GONE) {

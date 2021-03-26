@@ -34,7 +34,7 @@ class BlogFragment : Fragment() {
         val root = inflater.inflate(R.layout.fragment_blog, container, false)
         webView = root.findViewById(R.id.webView)
 
-        blogViewModel = root.findViewById(R.id.blogProgressBar)
+//        blogViewModel = root.findViewById(R.id.blogProgressBar)
 
         setUpWebView()
 
@@ -62,9 +62,8 @@ class BlogFragment : Fragment() {
         blogViewModel.webUrl.observe(viewLifecycleOwner, Observer {
             fullUrl = it
 
-            if (blogProgressBar != null) {
-                blogProgressBar!!.visibility = View.GONE
-            }
+
+//            blogProgressBar!!.visibility = View.GONE
 
             // load web
             webView.apply {

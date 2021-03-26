@@ -8,4 +8,8 @@ interface ApiInterface {
     // Mobile data
     @GET("api/courses/2")
     suspend fun fetchMobileData(): Response<PostModel>
+
+    // Web data
+    @GET("api/courses/4")
+    suspend fun fetchWebData(): Response<PostModel>
 }
