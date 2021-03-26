@@ -24,6 +24,7 @@ class HomeFragment : Fragment() {
     private var gameCard: CardView? = null
     private var digitalMrktCard : CardView? = null
     private var dataScience: CardView? = null
+    private var onlineSafety: CardView? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -40,6 +41,7 @@ class HomeFragment : Fragment() {
         gameCard = root.findViewById(R.id.home_gameDevCard)
         digitalMrktCard = root.findViewById(R.id.home_digitalMarketingCard)
         dataScience = root.findViewById(R.id.home_dataScienceCard)
+        onlineSafety = root.findViewById(R.id.home_onlineSafetyCard)
 
         // intent to base course screens
         uiScreenTransactions()
@@ -81,6 +83,13 @@ class HomeFragment : Fragment() {
             val dataScIntent = Intent(this@HomeFragment.context, DataScienceActivity::class.java)
             dataScIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(dataScIntent)
+        }
+
+        onlineSafety!!.setOnClickListener {
+            Log.d(TAG, "Online Safety Card onClick: Success")
+            val onlineSafetyIntent = Intent(this@HomeFragment.context, OnlineSafetyActivity::class.java)
+            onlineSafetyIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            startActivity(onlineSafetyIntent)
         }
     }
 }
