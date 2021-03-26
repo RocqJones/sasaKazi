@@ -1,4 +1,4 @@
-package com.intoverflown.sasakazi.ui.discussion_migrations.reusableutils
+package com.intoverflown.sasakazi.ui.discussions.reusableutils
 
 class Messages {
     var text: String? = null
