@@ -16,4 +16,8 @@ interface ApiInterface {
     // Game data
     @GET("api/courses/1")
     suspend fun fetchGameData(): Response<PostModel>
+
+    // Online Safety data
+    @GET("api/courses/3")
+    suspend fun fetchOnlineSafetyData(): Response<PostModel>
 }

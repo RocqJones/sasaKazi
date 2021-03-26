@@ -12,7 +12,7 @@ class ViewModel(private val repository: Repository) : ViewModel() {
 
     val myMobileResponse: MutableLiveData<Response<PostModel>> = MutableLiveData()
 
-    // mobile
+    // Mobile
     fun fetchMobileData() {
         // use coroutines
         viewModelScope.launch {
@@ -35,6 +35,15 @@ class ViewModel(private val repository: Repository) : ViewModel() {
         // use coroutines
         viewModelScope.launch {
             val response = repository.fetchGameData()
+            myMobileResponse.value = response
+        }
+    }
+
+    // Online Safety
+    fun fetchOnlineSafetyData() {
+        // use coroutines
+        viewModelScope.launch {
+            val response = repository.fetchOnlineSafetyData()
             myMobileResponse.value = response
         }
     }
