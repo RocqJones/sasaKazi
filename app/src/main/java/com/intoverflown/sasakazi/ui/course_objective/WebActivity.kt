@@ -15,7 +15,6 @@ import com.intoverflown.sasakazi.R
 import com.intoverflown.sasakazi.data.Repository
 import com.intoverflown.sasakazi.ui.course_objective.models.ViewModel
 import com.intoverflown.sasakazi.ui.course_objective.models.ViewModelFactory
-import com.intoverflown.sasakazi.ui.course_objective.models.ViewModelWeb
 import com.intoverflown.sasakazi.ui.discussions.ChatWeb
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
@@ -56,13 +55,10 @@ class WebActivity : AppCompatActivity() {
     private var webAssignmentVisibility: View? = null
 
     private lateinit var fullUrl : String
-    private lateinit var viewModelWeb : ViewModelWeb
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_obj_web)
-
-        viewModelWeb = ViewModelProvider(this).get(ViewModelWeb::class.java)
 
         webFloatActionBtn = findViewById<View>(R.id.floatingActionBtn) as FloatingActionButton
         webObjDescription = findViewById<View>(R.id.objectiveDescription) as TextView
