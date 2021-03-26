@@ -256,8 +256,6 @@ public class ChatOnlineSafety extends AppCompatActivity {
     }
 
 
-
-
     @Override
     protected void onStart() {
         super.onStart();
