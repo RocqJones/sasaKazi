@@ -14,4 +14,9 @@ class Repository {
     suspend fun fetchWebData() : Response<PostModel> {
         return RetrofitInstance.api.fetchWebData()
     }
+
+    // Fetch Game Data
+    suspend fun fetchGameData() : Response<PostModel> {
+        return RetrofitInstance.api.fetchGameData()
+    }
 }
