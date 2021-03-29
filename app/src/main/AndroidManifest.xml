@@ -16,10 +16,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SasaKazi">
         <activity
+            android:name=".ui.blog_details.BlogDetailsActivity"
+            android:label="@string/title_blog"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/Theme.SasaKazi"/>
+        <activity
             android:name=".ui.discussions.ChatOnlineSafety"
             android:label="@string/online_safety"
             android:parentActivityName=".ui.course_objective.OnlineSafetyActivity"
-            android:theme="@style/Theme.SasaKazi"/>
+            android:theme="@style/Theme.SasaKazi" />
         <activity
             android:name=".ui.youtubestreaming.YouTubeStreamingActivity"
             android:label="@string/live_classroom"
