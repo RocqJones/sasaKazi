@@ -15,7 +15,6 @@ import com.intoverflown.sasakazi.R
 import com.intoverflown.sasakazi.data.Repository
 import com.intoverflown.sasakazi.ui.course_objective.models.ViewModel
 import com.intoverflown.sasakazi.ui.course_objective.models.ViewModelFactory
-import com.intoverflown.sasakazi.ui.course_objective.models.ViewModelMobile
 import com.intoverflown.sasakazi.ui.discussions.ChatMobile
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
@@ -55,7 +54,6 @@ class MobileActivity : AppCompatActivity() {
     private var mobileAssignmentVisibility: View? = null
 
     private lateinit var fullUrl : String
-    private lateinit var viewModelMobile : ViewModelMobile
     private lateinit var viewModel: ViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -155,49 +153,6 @@ class MobileActivity : AppCompatActivity() {
                 Log.e("Response API Error: ", response.errorBody().toString())
             }
         })
-
-//        viewModelMobile.textCourseObj.observe(this) {
-//            mobileObjDescription!!.text = it
-//        }
-//
-//        viewModelMobile.textInstructorName.observe(this) {
-//            mobileInstructorName!!.text = it
-//        }
-//        viewModelMobile.textCertRequirements.observe(this) {
-//            mobileCertConditions!!.text = it
-//        }
-
-        // get url and extract the link id in the subsequent function
-//        viewModelMobile.youtubeLink.observe(this) { it ->
-//            fullUrl = it
-//
-//            Log.i("YouTubeURL: ", fullUrl)
-//
-//            // extract link id from url
-//            val extractedVidID : String? = fullUrl.substringAfterLast("youtu.be/")
-//
-//            mobileVidPlayerView!!.let { lifecycle.addObserver(it) }
-//
-//            mobileVidPlayerView!!.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
-//                override fun onReady(youTubePlayer: YouTubePlayer) {
-//                    if (extractedVidID != null) {
-//                        Log.i("YouTubeID: ", extractedVidID)
-//                    }
-//
-//                    extractedVidID.let { it1 ->
-//                        if (it1 != null) {
-//                            youTubePlayer.cueVideo(it1, 0F)
-//
-//                        }
-//                    }
-//                }
-//            })
-//
-////            mobileVidPlayerView!!.enterFullScreen()
-////            mobileVidPlayerView!!.exitFullScreen()
-////            mobileVidPlayerView!!.isFullScreen()
-////            mobileVidPlayerView!!.toggleFullScreen()
-//        }
 
         mobileFloatActionBtn!!.setOnClickListener {
             if (mobileFloatBtnView!!.visibility == View.GONE) {
