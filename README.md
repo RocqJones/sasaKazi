@@ -29,7 +29,7 @@
   ![okhttp Interceptor process](screenshots/okhttpInterceptor.png)
 
 ## Download apk
-[Click here for download!](https://github.com/RocqJones/sasaKazi/blob/master/app/build/outputs/apk/debug/app-debug.apk)
+[Google PlayS!]https://play.google.com/store/apps/details?id=com.intoverflown.sasakazi)
 
 ## Libraries.
 [Glide](https://github.com/bumptech/glide) - Glide is a fast and efficient open source media management and image loading framework for Android that wraps media decoding, memory and disk caching.<br>
