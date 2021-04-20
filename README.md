@@ -1,5 +1,8 @@
 # sasaKazi
 
+[![CircleCI](https://circleci.com/gh/google/pybadges.svg?style=svg)](https://circleci.com/gh/google/pybadges)
+![circleci](https://img.shields.io/static/v1?label=Google-PlayStore&message=Passed&color=green)
+
 ## Working prototype demo
 [![Watch the video](screenshots/demo.png)](https://youtu.be/hQGLeIyQ0rs)
 
