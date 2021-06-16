@@ -1,11 +1,10 @@
 package com.intoverflown.sasakazi.ui.splash
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.view.WindowManager
-import com.intoverflown.sasakazi.MainActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.intoverflown.sasakazi.R
 import com.intoverflown.sasakazi.users.LoginActivity
 
